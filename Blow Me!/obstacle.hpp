@@ -2,20 +2,23 @@
 #include <raylib.h>
 
 
-class Obstacle
+class Entity
 {
 
 	
 public:
 
-	Obstacle(Texture2D sprite, Vector2 pos, int frameSpd, int frameCnt, float velocityX) : position(pos), spriteSheet(sprite), frameSpeed(frameSpd), frameCount(frameCnt), velX(velocityX)
+	Entity(Texture2D sprite, Vector2 pos, int frameSpd, int frameCnt, float velocityX, bool shouldInvert, float scale = 1.f) 
+		: position(pos), spriteSheet(sprite), frameSpeed(frameSpd), frameCount(frameCnt), velX(velocityX)
 	{
+		int invertRatio = 1;
+		shouldInvert ? invertRatio = -1 : invertRatio = 1;
 		collisionBox.x = 0; collisionBox.y = 0;
 		collisionBox.width = 0; collisionBox.height = 0;
 		currentFrame = 0;
 		frameCounter = 0;
 		destRect.y = 0;
-		destRect.width = sprite.width / frameCnt;
+		destRect.width = invertRatio * sprite.width / frameCnt;
 		destRect.height = sprite.height;
 		
 	}

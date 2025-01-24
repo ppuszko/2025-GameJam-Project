@@ -25,10 +25,15 @@ int main()
     InitWindow(screenWidth, screenHeight, "Blow Me!");
 
     Texture2D duck = LoadTexture("../Assets/bird.png");
+
+    Image img = LoadImage("../Assets/bird.png");
+    ImageResize(&img, img.width * 2.5f, img.height * 2.5f);
+    Texture2D duck2 = LoadTextureFromImage(img);
+
     Texture2D bubble = LoadTexture("../Assets/bubble.png");
 
 
-    Obstacle bird(duck, birdPos, 10, 7, 3);
+    Entity bird(duck2, birdPos, 10, 7, 3, true);
 
 
     //source rectangle defining frame position on sprite sheet

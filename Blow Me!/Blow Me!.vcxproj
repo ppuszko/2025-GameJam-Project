@@ -132,6 +132,7 @@
     <ClCompile Include="Blow Me!.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="bubble.hpp" />
     <ClInclude Include="obstacle.hpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
