@@ -3,7 +3,7 @@
 
 class Bubble
 {
-  private:
+private:
     const double MAX_HEIGHT = 20.0;
     const double MIN_HEIGHT = 0.0;
     const double VELOCITY_UP = 2.0;
@@ -14,7 +14,7 @@ class Bubble
     double velocity;
     double weight_factor;
 
-  public:
+public:
     Bubble(double x_ = 1.0, double y_ = 1.0, double radius_ = 1.0, double velocity_ = 1.0);
 
     void move();

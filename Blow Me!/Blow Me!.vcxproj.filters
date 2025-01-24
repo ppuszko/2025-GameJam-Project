@@ -18,12 +18,21 @@
     <ClCompile Include="Blow Me!.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Bubble.cpp">
+      <Filter>Header Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Fan.cpp">
+      <Filter>Header Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="obstacle.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="bubble.hpp">
+    <ClInclude Include="Fan.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Bubble.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

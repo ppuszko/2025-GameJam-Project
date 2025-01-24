@@ -130,9 +130,12 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Blow Me!.cpp" />
+    <ClCompile Include="Bubble.cpp" />
+    <ClCompile Include="Fan.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="bubble.hpp" />
+    <ClInclude Include="Bubble.hpp" />
+    <ClInclude Include="Fan.hpp" />
     <ClInclude Include="obstacle.hpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
