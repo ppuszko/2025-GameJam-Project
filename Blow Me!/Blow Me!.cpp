@@ -1,6 +1,8 @@
 ﻿#include <iostream>
 
-#include "raylib.h"
+#include <raylib.h>
+
+#include "obstacle.hpp";
 
 
 
@@ -15,14 +17,20 @@ int main()
     int frameCounter{ 0 };
     int frameSpeed{ 4 };
     //
-
+   
 
     Vector2 bubblePos{ 100.f, 100.f };
+    Vector2 birdPos{ 500.f, 200.f };
 
     InitWindow(screenWidth, screenHeight, "Blow Me!");
 
-
+    Texture2D duck = LoadTexture("../Assets/bird.png");
     Texture2D bubble = LoadTexture("../Assets/bubble.png");
+
+
+    Obstacle bird(duck, birdPos, 10, 7, 3);
+
+
     //source rectangle defining frame position on sprite sheet
     Rectangle frameRec = { 0.f, 0.f, bubble.width / 4, bubble.height };
 
@@ -48,6 +56,9 @@ int main()
 
         DrawTextureRec(bubble, frameRec, bubblePos, WHITE);
 
+        bird.shiftSpriteFrame();
+        bird.display();
+        bird.move();
 
         EndDrawing();
 
