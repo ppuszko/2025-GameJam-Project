@@ -27,7 +27,7 @@ int main()
         ClearBackground(WHITE);
 
         bubble.display(globalFrames);
-        bubble.manageMovement(fan);
+        bubble.update(fan);
         fan.animComponent->draw(globalFrames, 100, 700, 4);
         EndDrawing();
     }
