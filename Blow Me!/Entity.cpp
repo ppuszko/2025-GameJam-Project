@@ -1,6 +1,6 @@
-#include "Entity.hpp"
-#include "Details.hpp"
 #include <raylib.h>
+
+#include "Entity.hpp"
 
 Entity::Entity(const char* path, Vector2 pos, int frameSpd, 
 	int frameCnt, float velocityX, bool shouldInvert, float scale)
@@ -9,9 +9,6 @@ Entity::Entity(const char* path, Vector2 pos, int frameSpd,
 	animComponent = new Animation(path, frameCnt, frameSpd, shouldInvert);
 	collisionBox.x = 0; collisionBox.y = 0;
 	collisionBox.width = 0; collisionBox.height = 0;
-	
-	
-
 }
 
 Entity::~Entity()
@@ -44,10 +41,27 @@ void Entity::move()
 	position.x -= velX;
 }
 
-void EntityQueue::add_entity(const char* path, 
-	int frameSpd, int frameCnt, 
-	float velocityX, bool shouldInvert, float scale)
+EntityQueue::EntityQueue()
+{
+	enemiesTypeQuantities = {0};
+}
+
+void EntityQueue::addEntity()
 {
 	Vector2 pos = {screenWidth, static_cast<float>(GetRandomValue(100, 700))};
-	queue.push(Entity(path, pos, frameSpd, frameCnt, velocityX, shouldInvert, scale));
+
+	int randomNumber = GetRandomValue(0, enemyTypeCount - 1);
+	
+	while (enemiesTypeQuantities[randomNumber] > maxEnemiesPerType)
+		if (randomNumber == enemyTypeCount)
+			randomNumber = 0;
+		else
+			++randomNumber;
+	
+	const char *const path = initArr[randomNumber].path;
+	int frameCnt = initArr[randomNumber].frameCount;
+	float newScale = initArr[randomNumber].scale * static_cast<float>(GetRandomValue(100, 200)) / 200.0f;
+	bool shouldInvert = initArr[randomNumber].shouldInvert;
+
+	queue.push(Entity(path, pos, animationSpeed, frameCnt, velocityX, shouldInvert, newScale));
 }

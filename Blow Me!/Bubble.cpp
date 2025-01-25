@@ -1,6 +1,6 @@
 //tmp header for move
 #include <iostream>
-
+#include <algorithm>
 #include "Bubble.hpp"
 
 Bubble::Bubble(float radius_, float velocity_, 
@@ -24,28 +24,37 @@ void Bubble::move()
         position.y = minHeight - radius;
 }
 
+void Bubble::checkCollision( int screenHeight)
+{
+    if (position.y + radius / 2 >= screenHeight || position.x + radius / 2 <= 0)
+    {
+        std::cout << "collided with boundaries" << std::endl;
+    }
+}
+
 void Bubble::checkFanInfluence(Fan& fan)
 {
     if(fan.checkCollision(position.x + radius/2))
     {
         if (fan.getFanState() == WIND)
         {
-            velocity = VELOCITY_UP * (1.f / weight_factor);
+            velocity += VELOCITY_UP * (1.f / weight_factor) * 0.1f;
         } 
     }
     else
     {
-        velocity = VELOCITY_DOWN * ( weight_factor);
+        velocity += VELOCITY_DOWN * ( weight_factor) * 0.1f;
     }
-
+    velocity = std::clamp(velocity, -5.f, 4.5f);
 }
 
 
 
-void Bubble::show()
-{
-    std::cout <<"y: "<< position.y << std::endl;
-}
+
+//void Bubble::show()
+//{
+//    std::cout <<"y: "<< position.y << std::endl;
+//}
 
 void Bubble::update(Fan& fan)
 {
