@@ -16,9 +16,9 @@ ScreenManager::~ScreenManager()
 void ScreenManager::_createObjects()
 {
     _background = new Background();
-    _bubble = new Bubble (32, 5, screenHeight, "../Assets/bubble_pop.png", { 100, screenHeight / 2.f }, 8, 6, 0, 0, 2);
-    _fan = new Fan(100, 32, 5, 3, "../Assets/fan.png", 10, 6);
-    _entity = new Entity("../Assets/bird.png", { 800, 500 }, 8, 7, 1, 1, 2.0f);
+    _bubble = new Bubble (bubbleRadius, bubbleVelocityY, screenHeight, bubbIdlePath, bubblePosition, animationSpeed, bubbIdleFrameCount, 0, 0, bubbleScale);
+    _fan = new Fan(fanPositionX, fanRadius, fanVelocity, fanScale, fanPath, fanFrameCount, animationSpeed);
+    _entity = new Entity(birdPath, { 800, 500 }, animationSpeed, birdFrameCount, enemyVelocityX, 1, birdScale);
 }
 
 void ScreenManager::drawModel()
