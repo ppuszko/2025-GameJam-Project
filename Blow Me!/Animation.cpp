@@ -21,10 +21,6 @@ Animation::Animation()
     invertRatio = 1;
 }
 
-Animation::~Animation() {
-    UnloadTexture(texture);
-}
-
 void Animation::draw(int64_t& global_frame, int pos_x, int pos_y, float scale) {
     if (start_frame == -1) {
         start_frame = global_frame;
