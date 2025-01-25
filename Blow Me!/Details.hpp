@@ -1,3 +1,6 @@
+#ifndef DETAILS_HPP
+#define DETAILS_HPP
+
 #include <raylib.h>
 
 //screen & animation details
@@ -64,3 +67,4 @@ const char* const bubblePopPath = "../Assets/bubble_pop.png";
 const int bubbIdleFrameCount = 5;
 const char* const bubbIdlePath = "../Assets/bubble_idle.png";
 
+#endif
