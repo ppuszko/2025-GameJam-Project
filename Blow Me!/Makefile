@@ -1,7 +1,5 @@
 output: Blow\ Me\!.o Animation.o Background.o Bubble.o Entity.o Fan.o ScreenManager.o
 	g++ Blow\ Me\!.o Animation.o Background.o Bubble.o Entity.o Fan.o ScreenManager.o -lm -Wall -Wextra -lraylib -lGL -lpthread -ldl -lrt -lX11 -o output
-	mkdir build/
-	mv *.o build/
 	./output
 
 Blow\ Me\!.o:  
@@ -26,5 +24,5 @@ ScreenManager.o: ScreenManager.cpp ScreenManager.hpp
 	g++ -c ScreenManager.cpp
 
 clean:
-	rm -r build
+	rm -r *.o
 	rm output
