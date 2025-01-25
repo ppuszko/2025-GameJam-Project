@@ -26,5 +26,5 @@ ScreenManager.o: ScreenManager.cpp ScreenManager.hpp
 	g++ -c ScreenManager.cpp
 
 clean:
-	rm *.o
+	rm -r build
 	rm output
