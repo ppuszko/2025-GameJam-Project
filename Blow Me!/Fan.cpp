@@ -16,16 +16,13 @@ Fan::~Fan()
     delete animComponent;
 }
 
-void Fan::updatePosition(int side, int screenWidth)
-{
-   
-    int expectedPos = x + side*velocity;
-    if ((expectedPos >= 0 && expectedPos + RADIUS <= screenWidth))
+void Fan::updatePosition(int direction, int screenWidth)
+{ 
+    int expectedPos = x + direction*velocity;
+    if ((expectedPos - RADIUS/2 >= 0 && expectedPos + RADIUS/2 <= screenWidth))
     {
         x = expectedPos;
     }
-   
- 
 }
 
 void Fan::update(int screenWidth, int64_t& globalFrame)
@@ -50,7 +47,7 @@ void Fan::draw(int64_t& globalFrame)
 
 bool Fan::checkCollision(float x1)
 {
-    if (x <= x1 && x1 <= x + RADIUS)
+    if (x - RADIUS/2 <= x1 && x1 <= x + RADIUS/2)
         return true;
     else
         return false;

@@ -21,7 +21,7 @@ class Fan
 
     ~Fan();
 
-    void updatePosition(int side, int screenWidth);
+    void updatePosition(int direction, int screenWidth);
     void update(int screenWidth, int64_t& globalFrame);
     void switchState();
     void draw(int64_t& globalFrame);
