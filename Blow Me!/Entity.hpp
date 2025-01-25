@@ -41,5 +41,5 @@ class EntityQueue
 
 	Entity getEntity() { return queue.front(); }
 	std::queue<Entity> &getQueue() { return queue; }
-
+	void updateQueue(int64_t &global_frame);
 };

@@ -65,3 +65,14 @@ void EntityQueue::addEntity(int i)
 
 	queue.push(Entity(path, pos, animationSpeed, frameCnt, velocityX, shouldInvert, newScale));
 }
+
+void EntityQueue::updateQueue(int64_t &global_frame)
+{
+	for (int i = 0; i < queue.size(); ++i)
+	{
+		auto t = queue.front();
+		t.display(global_frame);
+		t.move();
+		queue.push(t);
+	}
+}
