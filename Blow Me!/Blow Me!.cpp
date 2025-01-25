@@ -15,8 +15,10 @@ int main()
     Vector2 bubblePos{ 100, screenHeight / 2.f };
     int64_t globalFrames = 0;
 
-    Bubble bubble(16.f, 5, screenHeight, "../Assets/bubble_pop.png", bubblePos, 8, 6, 0, 0, 3);
-    Fan fan(100, 100, "../Assets/fan.png", 10, 6);
+
+    Bubble bubble(16.f, 5, screenHeight, "../Assets/bubble_pop.png", bubblePos, 8, 6, 0, 0, 2);
+    Fan fan(100, 60, 5, 3, "../Assets/fan.png", 10, 6);
+
 
     SetTargetFPS(60);
     while (!WindowShouldClose())
@@ -28,7 +30,10 @@ int main()
 
         bubble.display(globalFrames);
         bubble.update(fan);
-        fan.animComponent->draw(globalFrames, 100, 700, 4);
+
+        //fan.animComponent->draw(globalFrames, 100, 700, 4);
+        fan.update(screenWidth, globalFrames);
+
         EndDrawing();
     }
     CloseWindow();

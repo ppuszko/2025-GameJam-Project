@@ -13,16 +13,20 @@ class Fan
     float x;
     state stateOfFan;
     float velocity;
+    float scale;
+   
 
   public:
-    Fan(float x_ ,float radius, const char* path, int frameCount, int frameSpeed, state state_of_fan_ = WIND);
+    Fan(float x_ ,float radius, float velocity, float scale, const char* path, int frameCount, int frameSpeed, state state_of_fan_ = WIND);
 
-    void updateVelocity(float velocity_);
-    void update();
+    void updatePosition(int side, int screenWidth);
+    void update(int screenWidth, int64_t& globalFrame);
     void switchState();
-    void draw();
+    void draw(int64_t& globalFrame);
     bool checkCollision(float x1);
     state getFanState();
+    void handleInput();
+
     Animation* animComponent;
 
 };
