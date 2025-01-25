@@ -1,4 +1,6 @@
 #include "Entity.hpp"
+#include "Details.hpp"
+#include <raylib.h>
 
 Entity::Entity(const char* path, Vector2 pos, int frameSpd, 
 	int frameCnt, float velocityX, bool shouldInvert, float scale)
@@ -42,3 +44,10 @@ void Entity::move()
 	position.x -= velX;
 }
 
+void EntityQueue::add_entity(const char* path, 
+	int frameSpd, int frameCnt, 
+	float velocityX, bool shouldInvert, float scale)
+{
+	Vector2 pos = {screenWidth, static_cast<float>(GetRandomValue(100, 700))};
+	queue.push(Entity(path, pos, frameSpd, frameCnt, velocityX, shouldInvert, scale));
+}

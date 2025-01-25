@@ -35,12 +35,10 @@ class EntityQueue
 	std::queue<Entity> queue;
 
   public:
-	void add_entity(const char* path, Vector2 pos, 
+	void add_entity(const char* path,
 		int frameSpd, int frameCnt, 
-		float velocityX, bool shouldInvert, float scale = 1.f)
-	{
-		queue.push(Entity(path, pos, frameSpd, frameCnt, velocityX, shouldInvert, scale));
-	}
+		float velocityX, bool shouldInvert, float scale = 1.f);
+
 	Entity get_entity()
 	{
 		return queue.front();
