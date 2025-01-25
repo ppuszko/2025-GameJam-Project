@@ -43,4 +43,6 @@ class EntityQueue
 	{
 		return queue.front();
 	}
+
+
 };
