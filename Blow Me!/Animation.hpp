@@ -1,5 +1,5 @@
-#ifndef BUBBLE_HPP
-#define BUBBLE_HPP
+#ifndef ANIMATION_HPP
+#define ANIMATION_HPP
 
 #include <cstdint>
 #include <raylib.h>
