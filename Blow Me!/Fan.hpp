@@ -19,6 +19,8 @@ class Fan
   public:
     Fan(float x_ ,float radius, float velocity, float scale, const char* path, int frameCount, int frameSpeed, state state_of_fan_ = WIND);
 
+    ~Fan();
+
     void updatePosition(int side, int screenWidth);
     void update(int screenWidth, int64_t& globalFrame);
     void switchState();

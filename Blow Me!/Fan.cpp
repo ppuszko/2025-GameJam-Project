@@ -1,5 +1,3 @@
-#include <iostream>
-
 #include "Fan.hpp"
 
 Fan::Fan(float x_, float radius, float velocity_, float scale_, const char* path, int frameCount, int frameSpeed, state state_of_fan_)
@@ -12,6 +10,11 @@ Fan::Fan(float x_, float radius, float velocity_, float scale_, const char* path
     animComponent = new Animation(path, frameCount, frameSpeed);
 }
 
+Fan::~Fan()
+{
+    delete animComponent;
+}
+
 void Fan::updatePosition(int side, int screenWidth)
 {
     if (x >= 0 && x + RADIUS <= screenWidth)
@@ -22,7 +25,6 @@ void Fan::updatePosition(int side, int screenWidth)
     {
         x = screenWidth - RADIUS;
     }
-    
 }
 
 void Fan::update(int screenWidth, int64_t& globalFrame)
@@ -30,7 +32,6 @@ void Fan::update(int screenWidth, int64_t& globalFrame)
     handleInput();
 
     draw(globalFrame);
-   
 }
 
 void Fan::switchState()
@@ -43,7 +44,6 @@ void Fan::switchState()
 
 void Fan::draw(int64_t& globalFrame)
 {
-   // std::cout << "x: "<< x <<" state_of_fan: "<< stateOfFan <<" velocity: "<< velocity << std::endl;
     animComponent->draw(globalFrame, x, 750, scale);
 }
 
@@ -65,6 +65,4 @@ void Fan::handleInput()
 {
     if (IsKeyDown(KEY_LEFT)) updatePosition(-1, 1200);
     if (IsKeyDown(KEY_RIGHT)) updatePosition(1, 1200);
-
-    
 }

@@ -1,5 +1,6 @@
-#include "Animation.hpp"
 #include <raylib.h>
+
+#include "Animation.hpp"
 
 Animation::Animation(const char * path, 
     int _frame_count, int _frame_speed, bool shouldInvert) {
@@ -39,8 +40,8 @@ void Animation::draw(int64_t& global_frame, int pos_x, int pos_y, float scale) {
     Rectangle source_rect = {
         (float)width * current_frame, 
         0.f, 
-        invertRatio * width,
-        height
+        static_cast<float>(invertRatio * width),
+        1.0f * height
     };
 
     Rectangle dest_rect = {
@@ -51,6 +52,4 @@ void Animation::draw(int64_t& global_frame, int pos_x, int pos_y, float scale) {
     };
 
     DrawTexturePro(texture, source_rect, dest_rect, {0, 0}, 0, WHITE);
-
-
 }
