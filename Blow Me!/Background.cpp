@@ -1,5 +1,4 @@
 #include "Background.hpp"
-#include "raylib.h"
 
 Background::Background()
 {
