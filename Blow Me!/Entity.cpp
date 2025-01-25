@@ -71,6 +71,7 @@ void EntityQueue::updateQueue(int64_t &global_frame)
 	for (int i = 0; i < queue.size(); ++i)
 	{
 		auto t = queue.front();
+		queue.pop();
 		t.display(global_frame);
 		t.move();
 		queue.push(t);
