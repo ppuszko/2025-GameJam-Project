@@ -1,8 +1,8 @@
 #include <raylib.h>
 
 //screen & animation details
-const int screenHeight = 800;
-const int screenWidth = 1200;
+const int screenHeight = 900;
+const int screenWidth = 1600;
 const int animationSpeed = 8;
 const char* const title = "Blow Me!";
 const int fps = 60;

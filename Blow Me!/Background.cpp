@@ -2,7 +2,7 @@
 
 Background::Background()
 {
-    loadTexture();
+    loadTexture(); 
     setScrolling();
 }
 
@@ -15,9 +15,9 @@ Background::~Background()
 
 void Background::loadTexture()
 {
-    background = LoadTexture("../assets/background/ocean_2/1.png");
-    midground = LoadTexture("../assets/background/ocean_2/2.png");
-    foreground = LoadTexture("../assets/background/ocean_2/3.png");
+    background = LoadTexture("../assets/background/ocean_2/2.png");
+    midground = LoadTexture("../assets/background/ocean_2/3.png");
+    foreground = LoadTexture("../assets/background/ocean_2/4.png");
 }
 
 void Background::setScrolling()
@@ -29,26 +29,28 @@ void Background::setScrolling()
 
 void Background::updateScrolling()
 {
-    _scrollingBackScreen -= 0.1f;
-    _scrollingMidScreen -= 0.5f;
-    _scrollingForeScreen -= 1.0f;
+    _scrollingBackScreen -= 1.1f;
+    _scrollingMidScreen -= 1.5f;
+    _scrollingForeScreen -= 2.5f;
 }
 
 void Background::resetScrolling()
 {
-    if (_scrollingBackScreen <= -background.width * 2) _scrollingBackScreen = 0;
-    if (_scrollingMidScreen <= -midground.width * 2) _scrollingMidScreen = 0;
-    if (_scrollingForeScreen <= -foreground.width * 2) _scrollingForeScreen = 0;
+    if (_scrollingBackScreen <= -background.width * _backScreenScale) _scrollingBackScreen = 0;
+    if (_scrollingMidScreen <= -midground.width * _midScreenScale) _scrollingMidScreen = 0;
+    if (_scrollingForeScreen <= -foreground.width * _foreScreenScale) _scrollingForeScreen = 0;
 }
 
 void Background::drawBackground()
 {
-    DrawTextureEx(background, { _scrollingBackScreen, 20 }, 0.0f, 2.0f, WHITE);
-    DrawTextureEx(background, { background.width * 2 + _scrollingBackScreen, 20 }, 0.0f, 2.0f, WHITE);
+    DrawTextureEx(background, { _scrollingBackScreen, 0 }, 0.0f, _backScreenScale, WHITE);
+    DrawTextureEx(background, { background.width * _backScreenScale + _scrollingBackScreen, 0 }, 0.0f, _backScreenScale, WHITE);
 
-    DrawTextureEx(midground, { _scrollingMidScreen, 20 }, 0.0f, 2.0f, WHITE);
-    DrawTextureEx(midground, { midground.width * 2 + _scrollingMidScreen, 20 }, 0.0f, 2.0f, WHITE);
-
-    DrawTextureEx(foreground, { _scrollingForeScreen, 70 }, 0.0f, 2.0f, WHITE);
-    DrawTextureEx(foreground, { foreground.width * 2 + _scrollingForeScreen, 70 }, 0.0f, 2.0f, WHITE);
+    BeginBlendMode(BLEND_ALPHA);
+    DrawTextureEx(midground, { _scrollingMidScreen, 0 }, 0.0f, _midScreenScale, Fade(WHITE, 0.6f));
+    DrawTextureEx(midground, { midground.width * _midScreenScale + _scrollingMidScreen, 10 }, 0.0f, _midScreenScale, Fade(WHITE, 0.6f));
+    
+    DrawTextureEx(foreground, { _scrollingForeScreen, 8 }, 0.0f, _foreScreenScale, Fade(SKYBLUE, 0.3f));
+    DrawTextureEx(foreground, { foreground.width * _foreScreenScale + _scrollingForeScreen, 8 }, 0.0f, _foreScreenScale, Fade(SKYBLUE, 0.3f));
+    EndBlendMode();
 }

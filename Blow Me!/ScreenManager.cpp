@@ -25,7 +25,7 @@ void ScreenManager::drawModel()
 {
     _udpateModel();
     BeginDrawing();
-    ClearBackground(LIGHTGRAY);
+    ClearBackground(WHITE);
 
     //Users space to draw objects on screen
     _background->drawBackground();
