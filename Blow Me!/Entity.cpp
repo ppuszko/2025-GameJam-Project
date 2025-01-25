@@ -1,42 +1,45 @@
 #pragma once
 #include "Entity.hpp"
 
-Entity::Entity(Texture2D sprite, Vector2 pos, int frameSpd, int frameCnt, float velocityX, bool shouldInvert, float scale)
-: position(pos), spriteSheet(sprite), frameSpeed(frameSpd), frameCount(frameCnt), velX(velocityX)
+Entity::Entity(const char* path, Vector2 pos, int frameSpd, 
+	int frameCnt, float velocityX, bool shouldInvert, float scale)
+: position(pos), velX(velocityX), scale(scale)
 {
-	int invertRatio = 1;
-	shouldInvert ? invertRatio = -1 : invertRatio = 1;
+	animComponent = new Animation(path, frameCnt, frameSpd, shouldInvert);
 	collisionBox.x = 0; collisionBox.y = 0;
 	collisionBox.width = 0; collisionBox.height = 0;
-	currentFrame = 0;
-	frameCounter = 0;
-	destRect.y = 0;
-	destRect.width = invertRatio * sprite.width / frameCnt;
-	destRect.height = sprite.height;
+	
+	
 
 }
 
-void Entity::shiftSpriteFrame()
+Entity::~Entity()
 {
-	frameCounter++;
-
-	if (frameCounter >= (60 / frameSpeed))
-	{
-		frameCounter = 0;
-		currentFrame++;
-
-		if (currentFrame > frameCount) currentFrame = 0;
-		destRect.x = currentFrame * spriteSheet.width / frameCount;
-
-	}
+	delete animComponent;
 }
 
-void Entity::display()
+//void Entity::shiftSpriteFrame()
+//{
+//	frameCounter++;
+//
+//	if (frameCounter >= (60 / frameSpeed))
+//	{
+//		frameCounter = 0;
+//		currentFrame++;
+//
+//		if (currentFrame > frameCount) currentFrame = 0;
+//		destRect.x = currentFrame * spriteSheet.width / frameCount;
+//
+//	}
+//}
+
+void Entity::display(int64_t& global_frame)
 {
-	DrawTextureRec(spriteSheet, destRect, position, WHITE);
+	animComponent->draw(global_frame, position.x, position.y, scale);
 }
 
 void Entity::move()
 {
 	position.x -= velX;
 }
+
