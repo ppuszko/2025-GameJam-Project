@@ -50,19 +50,18 @@ void EntityQueue::addEntity(int i)
 {
 	Vector2 pos = {screenWidth, static_cast<float>(GetRandomValue(100, 700))};
 
-	//int randomNumber = GetRandomValue(0, enemyTypeCount - 1);
-	int randomNumber = i;
-
-	while (enemiesTypeQuantities[randomNumber] > maxEnemiesPerType)
-		if (randomNumber == enemyTypeCount)
-			randomNumber = 0;
-		else
-			++randomNumber;
+	int selectedType = GetRandomValue(0, enemyTypeCount - 1);
 	
-	const char *const path = initArr[randomNumber].path;
-	int frameCnt = initArr[randomNumber].frameCount;
-	float newScale = initArr[randomNumber].scale * static_cast<float>(GetRandomValue(100, 200)) / 200.0f;
-	bool shouldInvert = initArr[randomNumber].shouldInvert;
+	while (enemiesTypeQuantities[selectedType] > maxEnemiesPerType)
+		if (selectedType == enemyTypeCount)
+			selectedType = 0;
+		else
+			++selectedType;
+	
+	const char *const path = initArr[selectedType].path;
+	int frameCnt = initArr[selectedType].frameCount;
+	float newScale = initArr[selectedType].scale * static_cast<float>(GetRandomValue(100, 200)) / 200.0f;
+	bool shouldInvert = initArr[selectedType].shouldInvert;
 
 	queue.push(Entity(path, pos, animationSpeed, frameCnt, velocityX, shouldInvert, newScale));
 }
