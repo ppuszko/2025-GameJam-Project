@@ -1,13 +1,25 @@
 #pragma once
+#include "raylib.h"
+#include "Background.hpp"
+#include "Entity.hpp"
 
-//zarzadzanie obiektamai do rysowania na ekranie
+#define SCREEN_WIDTH 1200
+#define SCREEN_HEIGHT 800
+#define FPS 60
 
 static class ScreenManager {
 public:
-	void setScreenSize();
-	void setModelParameters();
-	void udpateModel();
+	ScreenManager();
+	~ScreenManager();
 	void drawModel();
-
-
+private:
+	void _initWindow(int screenWidth, int screenHeight);
+	void _createObjects();
+	void _udpateModel();
+	Background *_background;
+	/*
+	Bubble bubble;
+	Fan fan;
+	entity list;
+	*/
 };
