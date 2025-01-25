@@ -54,17 +54,17 @@ const initParams initArr[enemyTypeCount] =
 
 //fan constructor details
 const int fanFrameCount = 10;
-const char* const fanPath = "../Assests/fan.png";
-const float fanVelocity = 7;
+const char* const fanPath = "../Assets/fan.png";
+const float fanVelocity = 5;
 const float fanRadius = 32;
-const float fanPositionX = screenWidth / 2.0f;
+const float fanPositionX = 200;
 const float fanScale = 3.0f;
 
 //bubble constructor details
 const float bubbleRadius = 32;
 const float bubbleVelocityY = 12;
 const float bubbleScale = 2.0f;
-const Vector2 bubblePosition{ 100, screenHeight / 2.0f };
+const Vector2 bubblePosition{ 100, screenHeight / 4};
 //bubble pop
 const int bubblePopFrameCount = 6;
 const char* const bubblePopPath = "../Assets/bubble_pop.png";

@@ -45,7 +45,7 @@ void Bubble::checkFanInfluence(Fan& fan)
     {
         velocity += VELOCITY_DOWN * ( weight_factor) * 0.1f;
     }
-    velocity = std::clamp(velocity, -6.5f, 5.5f);
+    velocity = std::clamp(velocity, -5.f, 4.5f);
 }
 
 

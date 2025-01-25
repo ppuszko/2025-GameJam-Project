@@ -31,7 +31,8 @@ void ScreenManager::drawModel()
     _background->drawBackground();
     _bubble->display(globalFrames);
     _entity->display(globalFrames);
- 
+    _fan->update(screenWidth, globalFrames);
+  
     EndDrawing();
 }
 
