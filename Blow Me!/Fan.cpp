@@ -34,13 +34,8 @@ void Fan::draw()
 
 bool Fan::checkCollision(float x1)
 {
-    std::cout << "x: " << x << std::endl;
-    std::cout << "x1: " << x1 << std::endl;
-    if (x >= x1 && x1 <= x + RADIUS)
-    {
-       
+    if (x <= x1 && x1 <= x + RADIUS)
         return true;
-    }
     else
         return false;
 }
