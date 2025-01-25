@@ -1,3 +1,6 @@
+#ifndef BUBBLE_HPP
+#define BUBBLE_HPP
+
 #include <cstdint>
 #include <raylib.h>
 class Animation {
@@ -14,3 +17,5 @@ class Animation {
         ~Animation();
         void draw(int64_t global_frame, int pos_x, int pos_y, float scale);
 };
+
+#endif
