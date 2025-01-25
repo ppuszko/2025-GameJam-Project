@@ -9,8 +9,8 @@ class Animation {
         unsigned current_frame = 0;
         unsigned frame_count;
         unsigned frame_speed;
-        unsigned width;
-        unsigned height;
+        int width;
+        int height;
         Texture2D texture;
         int invertRatio;
     public:

@@ -2,7 +2,8 @@
 
 #include <raylib.h>
 
-#include "Entity.hpp";
+#include "Entity.hpp"
+#include "Bubble.hpp"
 
 #define FPS 60
 
@@ -14,7 +15,10 @@ int main()
     InitWindow(screenWidth, screenHeight, "Blow Me!");
     SetTargetFPS(FPS);
 
-    Entity bird ("../Assets/bubble_pop.png", {800, 500}, 8,6,1,0,2.0f);
+    Entity bird ("../Assets/bird.png", {800, 500}, 8,7,1,1,2.0f);
+    Bubble bubble(100.f, 200.f, 16, 2.f, screenHeight,
+        "../Assets/bubble_idle.png", { 100, 300 }, 8, 5, 0, 0, 1);
+
 
 
 
@@ -27,7 +31,7 @@ int main()
 
         bird.display(globalFrame);
         bird.move();
-  
+        bubble.display(globalFrame);
 
        
         EndDrawing();

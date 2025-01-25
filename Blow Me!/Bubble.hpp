@@ -3,8 +3,9 @@
 #include <raylib.h>
 
 #include "Fan.hpp"
+#include "Entity.hpp"
 
-class Bubble
+class Bubble : public Entity
 {
 private:
     int maxHeigth = 20.0;
@@ -18,7 +19,8 @@ private:
     double weight_factor;
 
 public:
-    Bubble(float x_ = 1.0, float y_ = 1.0, float radius_ = 1.0, float velocity_ = 0.f, int scrH = 1200);
+    Bubble(float x_ , float y_, float radius_, float velocity_, int scrH, const char* path, Vector2 pos,
+        int frameSpd, int frameCnt, float velocityX, bool shouldInvert, float scale = 1.f);
 
     void move();
     void checkFanInfluence(Fan& fan);

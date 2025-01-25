@@ -18,7 +18,7 @@ public:
 	void move();
 
 
-private:
+protected:
 	Rectangle collisionBox;
 	Vector2 position;
 	float velX;
