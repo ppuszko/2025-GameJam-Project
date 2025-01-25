@@ -10,7 +10,7 @@ Bubble::Bubble(float radius_, float velocity_,
 {
     position.x = pos.x;
     position.y = pos.y;
-    radius = radius_ < 0 ? -radius_ : radius_;
+    radius = radius_ * scale;
     velocity = velocity_;
     weight_factor = 1;
 }

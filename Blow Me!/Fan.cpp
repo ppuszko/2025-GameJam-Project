@@ -1,6 +1,7 @@
 #include "Fan.hpp"
 
-Fan::Fan(float x_, float radius, float velocity_, float scale_, const char* path, int frameCount, int frameSpeed, state state_of_fan_)
+Fan::Fan(float x_, float radius, float velocity_, float scale_, 
+    const char* path, int frameCount, int frameSpeed, state state_of_fan_)
  : stateOfFan(state_of_fan_)
 {
     RADIUS = radius * scale_;
@@ -27,7 +28,6 @@ void Fan::updatePosition(int side, int screenWidth)
 void Fan::update(int screenWidth, int64_t& globalFrame)
 {
     handleInput();
-
     draw(globalFrame);
 }
 
