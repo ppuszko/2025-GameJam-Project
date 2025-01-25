@@ -16,8 +16,8 @@ int main()
     int64_t globalFrames = 0;
 
 
-    Bubble bubble(16.f, 5, screenHeight, "../Assets/bubble_pop.png", bubblePos, 8, 6, 0, 0, 2);
-    Fan fan(100, 60, 5, 3, "../Assets/fan.png", 10, 6);
+    Bubble bubble(32, 5, screenHeight, "../Assets/bubble_pop.png", bubblePos, 8, 6, 0, 0, 2);
+    Fan fan(100, 32, 5, 3, "../Assets/fan.png", 10, 6);
 
 
     SetTargetFPS(60);

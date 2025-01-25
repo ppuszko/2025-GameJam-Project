@@ -18,10 +18,13 @@ Fan::~Fan()
 
 void Fan::updatePosition(int side, int screenWidth)
 {
-    if (x >= 0 && x + RADIUS <= screenWidth)
+   
+    int expectedPos = x + side*velocity;
+    if ((expectedPos >= 0 && expectedPos + RADIUS <= screenWidth))
     {
-        x += side * velocity;
+        x = expectedPos;
     }
+   
  
 }
 
