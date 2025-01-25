@@ -30,12 +30,12 @@ void Bubble::checkFanInfluence(Fan& fan)
     {
         if (fan.getFanState() == WIND)
         {
-            velocity = VELOCITY_UP * (1.f / weight_factor);
+            velocity = -VELOCITY_UP * (1.f / weight_factor);
         } 
     }
     else
     {
-        velocity = - VELOCITY_DOWN * ( weight_factor);
+        velocity = VELOCITY_DOWN * ( weight_factor);
     }
 
     /*if (x1 <= (position.x - radius/2) && (position.x + radius/2) <= x2)
