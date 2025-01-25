@@ -15,9 +15,9 @@ Background::~Background()
 
 void Background::loadTexture()
 {
-    background = LoadTexture("../assets/background/ocean_2/2.png");
-    midground = LoadTexture("../assets/background/ocean_2/3.png");
-    foreground = LoadTexture("../assets/background/ocean_2/4.png");
+    background = LoadTexture("../Assets/background/Ocean_2/2.png");
+    midground = LoadTexture("../Assets/background/Ocean_2/3.png");
+    foreground = LoadTexture("../Assets/background/Ocean_2/4.png");
 }
 
 void Background::setScrolling()
