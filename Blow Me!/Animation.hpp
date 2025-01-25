@@ -10,7 +10,7 @@ class Animation {
         unsigned height;
         Texture2D texture;
     public:
-        Animation(const char * path, int _width, int _height);
+        Animation(const char * path, int _width, int _height, int _frame_count, int _frame_speed);
         ~Animation();
         void draw(int64_t global_frame, int pos_x, int pos_y, float scale);
 };
