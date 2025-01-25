@@ -21,10 +21,7 @@ void Fan::updatePosition(int side, int screenWidth)
     {
         x += side * velocity;
     }
-    else
-    {
-        x = screenWidth - RADIUS;
-    }
+ 
 }
 
 void Fan::update(int screenWidth, int64_t& globalFrame)
