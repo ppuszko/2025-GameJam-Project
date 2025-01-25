@@ -1,6 +1,6 @@
 #pragma once
 #include <raylib.h>
-
+#include "Animation.hpp";
 
 class Entity
 {
@@ -8,22 +8,22 @@ class Entity
 	
 public:
 
-	Entity(Texture2D sprite, Vector2 pos, int frameSpd, int frameCnt, float velocityX, bool shouldInvert, float scale = 1.f);
+	Entity(const char* path, Vector2 pos, 
+		int frameSpd, int frameCnt, 
+		float velocityX, bool shouldInvert, float scale = 1.f);
+	~Entity();
 	
-	void shiftSpriteFrame();
-	void display();
+
+	void display(int64_t& globalFrame);
 	void move();
+
 
 private:
 	Rectangle collisionBox;
-	Rectangle destRect;
-	Texture2D spriteSheet;
 	Vector2 position;
-	int frameCounter;
-	int currentFrame;
-	int frameSpeed;
-	int frameCount;
 	float velX;
+	float scale;
+	Animation* animComponent = nullptr;
 
-	
+
 };

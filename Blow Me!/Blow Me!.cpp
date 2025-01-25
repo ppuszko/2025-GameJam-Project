@@ -1,4 +1,4 @@
-﻿#include <iostream>
+#include <iostream>
 #include <raylib.h>
 #include "ScreenManager.hpp"
 
@@ -11,6 +11,4 @@ int main()
         screenManager.drawModel();
     }
     CloseWindow();
-
-
 }
