@@ -41,7 +41,7 @@ void Fan::switchState()
 
 void Fan::draw(int64_t& globalFrame)
 {
-    animComponent->draw(globalFrame, x, 750, scale);
+    animComponent->draw(globalFrame, x, 820, scale);
 }
 
 
