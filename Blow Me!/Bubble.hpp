@@ -12,9 +12,9 @@ private:
     int minHeight = 0.0;
     const float VELOCITY_UP = -2.0;
     const float VELOCITY_DOWN = 1.0;
-    double radius;
-    double velocity;
-    double weight_factor;
+    float radius;
+    float velocity;
+    float weight_factor;
     void checkFanInfluence(Fan& fan);
     void move();
     

@@ -26,7 +26,7 @@ const float fanScale = 3.f;
 
 //bubble constructor details
 const float bubbleRadius = 32;
-const float bubbleVelocityY = 12;
+const float bubbleVelocityY = 1;
 const Vector2 bubblePosition{ 100, screenHeight / 2.0f };
 const float bubbleScale = 2;
 //bubble pop

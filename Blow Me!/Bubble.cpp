@@ -1,6 +1,6 @@
 //tmp header for move
 #include <iostream>
-
+#include <algorithm>
 #include "Bubble.hpp"
 
 Bubble::Bubble(float radius_, float velocity_, 
@@ -30,14 +30,14 @@ void Bubble::checkFanInfluence(Fan& fan)
     {
         if (fan.getFanState() == WIND)
         {
-            velocity = VELOCITY_UP * (1.f / weight_factor);
+            velocity += VELOCITY_UP * (1.f / weight_factor) * 0.1f;
         } 
     }
     else
     {
-        velocity = VELOCITY_DOWN * ( weight_factor);
+        velocity += VELOCITY_DOWN * ( weight_factor) * 0.1f;
     }
-
+    velocity = std::clamp(velocity, -6.5f, 5.5f);
 }
 
 
