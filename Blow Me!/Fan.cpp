@@ -2,21 +2,35 @@
 
 #include "Fan.hpp"
 
-Fan::Fan(float x_, float radius, const char* path, int frameCount, int frameSpeed, state state_of_fan_)
+Fan::Fan(float x_, float radius, float velocity_, float scale_, const char* path, int frameCount, int frameSpeed, state state_of_fan_)
  : stateOfFan(state_of_fan_)
 {
+    RADIUS = radius * scale_;
+    scale = scale_;
+    velocity = velocity_;
     x = x_;
     animComponent = new Animation(path, frameCount, frameSpeed);
 }
 
-void Fan::updateVelocity(float velocity_)
+void Fan::updatePosition(int side, int screenWidth)
 {
-    velocity = velocity_;
+    if (x >= 0 && x + RADIUS <= screenWidth)
+    {
+        x += side * velocity;
+    }
+    else
+    {
+        x = screenWidth - RADIUS;
+    }
+    
 }
 
-void Fan::update()
+void Fan::update(int screenWidth, int64_t& globalFrame)
 {
-    x += velocity;
+    handleInput();
+
+    draw(globalFrame);
+   
 }
 
 void Fan::switchState()
@@ -27,10 +41,12 @@ void Fan::switchState()
         stateOfFan = WIND;
 }
 
-void Fan::draw()
+void Fan::draw(int64_t& globalFrame)
 {
-    std::cout << "x: "<< x <<" state_of_fan: "<< stateOfFan <<" velocity: "<< velocity << std::endl;
+   // std::cout << "x: "<< x <<" state_of_fan: "<< stateOfFan <<" velocity: "<< velocity << std::endl;
+    animComponent->draw(globalFrame, x, 750, scale);
 }
+
 
 bool Fan::checkCollision(float x1)
 {
@@ -43,4 +59,12 @@ bool Fan::checkCollision(float x1)
 state Fan::getFanState()
 {
     return stateOfFan;
+}
+
+void Fan::handleInput()
+{
+    if (IsKeyDown(KEY_LEFT)) updatePosition(-1, 1200);
+    if (IsKeyDown(KEY_RIGHT)) updatePosition(1, 1200);
+
+    
 }
