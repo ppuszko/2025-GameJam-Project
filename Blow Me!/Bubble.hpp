@@ -1,24 +1,25 @@
 #ifndef BUBBLE_HPP
 #define BUBBLE_HPP
+#include <raylib.h>
 
 class Bubble
 {
 private:
-    const double MAX_HEIGHT = 20.0;
-    const double MIN_HEIGHT = 0.0;
-    const double VELOCITY_UP = 2.0;
-    const double VELOCITY_DOWN = -1.0;
+    int maxHeigth = 20.0;
+    int minHeight = 0.0;
+    const float VELOCITY_UP = -2.0;
+    const float VELOCITY_DOWN = 1.0;
 
-    double x, y;
+    Vector2 position;
     double radius;
     double velocity;
     double weight_factor;
 
 public:
-    Bubble(double x_ = 1.0, double y_ = 1.0, double radius_ = 1.0, double velocity_ = 1.0);
+    Bubble(float x_ = 1.0, float y_ = 1.0, float radius_ = 1.0, float velocity_ = 0.f, int scrH = 1200);
 
     void move();
-    void updateVelocity(double x1, double x2);
+    void updateVelocity(float x1, float x2);
     void show();
 };
 

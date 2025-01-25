@@ -1,14 +1,14 @@
 #ifndef FAN_HPP
 #define FAN_HPP
 
-typedef enum {WIND, FIRE} state;
+enum state {WIND, FIRE} ;
 
 class Fan
 {
   private:
-    static constexpr double RADIUS = 16;
+    static constexpr float RADIUS = 16;
 
-    double x;
+    float x;
     state state_of_fan;
     double velocity;
 

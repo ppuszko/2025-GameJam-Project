@@ -131,12 +131,13 @@
   <ItemGroup>
     <ClCompile Include="Blow Me!.cpp" />
     <ClCompile Include="Bubble.cpp" />
+    <ClCompile Include="Entity.cpp" />
     <ClCompile Include="Fan.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Bubble.hpp" />
     <ClInclude Include="Fan.hpp" />
-    <ClInclude Include="obstacle.hpp" />
+    <ClInclude Include="Entity.hpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

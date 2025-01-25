@@ -2,7 +2,7 @@
 
 #include <raylib.h>
 
-#include "obstacle.hpp";
+#include "Entity.hpp";
 
 
 
