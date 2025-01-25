@@ -15,6 +15,9 @@ private:
     float _scrollingBackScreen;
     float _scrollingMidScreen;
     float _scrollingForeScreen;
+    float _backScreenScale = 2.8f;
+    float _midScreenScale = 2.8f;
+    float _foreScreenScale = 2.8f;
     void loadTexture();
     void setScrolling();
 };
