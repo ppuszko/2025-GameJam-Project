@@ -1,23 +1,23 @@
 #pragma once
-#include <queue>
+
+#include <array>
 #include <raylib.h>
+#include <queue>
+
 #include "Animation.hpp"
+#include "Details.hpp"
 
 class Entity
 {
-
-	
 public:
 
 	Entity(const char* path, Vector2 pos, 
 		int frameSpd, int frameCnt, 
 		float velocityX, bool shouldInvert, float scale = 1.f);
 	~Entity();
-	
 
 	void display(int64_t& globalFrame);
 	void move();
-
 
 protected:
 	Rectangle collisionBox;
@@ -25,24 +25,21 @@ protected:
 	float velX;
 	float scale;
 	Animation* animComponent = nullptr;
-
-
 };
 
 class EntityQueue
 {
   private:
 	std::queue<Entity> queue;
+	std::array<int, enemyTypeCount> enemiesTypeQuantities;
 
   public:
-	void add_entity(const char* path,
-		int frameSpd, int frameCnt, 
-		float velocityX, bool shouldInvert, float scale = 1.f);
+	EntityQueue();
 
-	Entity get_entity()
-	{
-		return queue.front();
-	}
+	void addEntity();
 
+
+	Entity getEntity() { return queue.front(); }
+	std::queue<Entity> &getQueue() { return queue; }
 
 };
