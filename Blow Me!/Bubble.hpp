@@ -19,7 +19,7 @@ private:
     double weight_factor;
 
 public:
-    Bubble(float x_ , float y_, float radius_, float velocity_, int scrH, const char* path, Vector2 pos,
+    Bubble(float radius_, float velocity_, int scrH, const char* path, Vector2 pos,
         int frameSpd, int frameCnt, float velocityX, bool shouldInvert, float scale = 1.f);
 
     void move();
