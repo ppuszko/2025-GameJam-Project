@@ -7,7 +7,7 @@
 #define SCREEN_HEIGHT 800
 #define FPS 60
 
-static class ScreenManager
+class ScreenManager
 {
 public:
 	ScreenManager();
