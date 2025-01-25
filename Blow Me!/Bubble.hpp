@@ -12,8 +12,6 @@ private:
     int minHeight = 0.0;
     const float VELOCITY_UP = -2.0;
     const float VELOCITY_DOWN = 1.0;
-
-    Vector2 position;
     double radius;
     double velocity;
     double weight_factor;

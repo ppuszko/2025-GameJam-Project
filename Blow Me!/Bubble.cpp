@@ -53,7 +53,7 @@ void Bubble::manageMovement(Fan& fan)
     {
         if (fan.getFanState() == WIND)
         {
-            velocity = -VELOCITY_UP * (1.f / weight_factor);
+            velocity = VELOCITY_UP * (1.f / weight_factor);
         }
     }
     else

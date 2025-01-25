@@ -1,19 +1,21 @@
 #ifndef FAN_HPP
 #define FAN_HPP
 
+#include "Animation.hpp"
+
 enum state {WIND, FIRE} ;
 
 class Fan
 {
   private:
-    static constexpr float RADIUS = 16;
+    float RADIUS = 16;
 
     float x;
     state stateOfFan;
     float velocity;
 
   public:
-    Fan(float x_ = 5, state state_of_fan_ = WIND);
+    Fan(float x_ ,float radius, const char* path, int frameCount, int frameSpeed, state state_of_fan_ = WIND);
 
     void updateVelocity(float velocity_);
     void update();
@@ -21,6 +23,7 @@ class Fan
     void draw();
     bool checkCollision(float x1);
     state getFanState();
+    Animation* animComponent;
 
 };
 

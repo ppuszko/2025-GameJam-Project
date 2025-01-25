@@ -2,10 +2,11 @@
 
 #include "Fan.hpp"
 
-Fan::Fan(float x_, state state_of_fan_)
+Fan::Fan(float x_, float radius, const char* path, int frameCount, int frameSpeed, state state_of_fan_)
  : stateOfFan(state_of_fan_)
 {
-    x = x_ > 0 ? -x_ : x_;
+    x = x_;
+    animComponent = new Animation(path, frameCount, frameSpeed);
 }
 
 void Fan::updateVelocity(float velocity_)
@@ -33,8 +34,13 @@ void Fan::draw()
 
 bool Fan::checkCollision(float x1)
 {
+    std::cout << "x: " << x << std::endl;
+    std::cout << "x1: " << x1 << std::endl;
     if (x >= x1 && x1 <= x + RADIUS)
+    {
+       
         return true;
+    }
     else
         return false;
 }

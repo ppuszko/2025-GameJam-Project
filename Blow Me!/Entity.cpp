@@ -1,4 +1,3 @@
-#pragma once
 #include "Entity.hpp"
 
 Entity::Entity(const char* path, Vector2 pos, int frameSpd, 

@@ -4,11 +4,11 @@
 #include <cstdint>
 #include <raylib.h>
 class Animation {
-    private:
+    protected:
         int64_t start_frame = -1;
-        unsigned current_frame = 0;
-        unsigned frame_count;
-        unsigned frame_speed;
+        int current_frame = 0;
+        int frame_count;
+        int frame_speed;
         int width;
         int height;
         Texture2D texture;
