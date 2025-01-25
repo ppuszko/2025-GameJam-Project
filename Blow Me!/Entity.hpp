@@ -38,6 +38,8 @@ class EntityQueue
 
 	void addEntity();
 
+
 	Entity getEntity() { return queue.front(); }
 	std::queue<Entity> &getQueue() { return queue; }
+
 };

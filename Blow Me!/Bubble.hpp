@@ -17,7 +17,9 @@ private:
     float weight_factor;
     void checkFanInfluence(Fan& fan);
     void move();
-    
+  
+   
+
     //debug
     void show();
 
@@ -25,6 +27,7 @@ public:
     Bubble(float radius_, float velocity_, int scrH, const char* path, Vector2 pos,
         int frameSpd, int frameCnt, float velocityX, bool shouldInvert, float scale = 1.f);
     void update(Fan& fan);
+    void checkCollision(int screenHeight);
 };
 
 #endif
