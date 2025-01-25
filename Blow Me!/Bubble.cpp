@@ -22,7 +22,7 @@ void Bubble::move()
             position.y = maxHeigth;
         else if (position.y + radius > minHeight)
             position.y = minHeight - radius;
-    }
+}
 
 void Bubble::checkFanInfluence(Fan& fan)
 {
@@ -38,13 +38,28 @@ void Bubble::checkFanInfluence(Fan& fan)
         velocity = VELOCITY_DOWN * ( weight_factor);
     }
 
-    /*if (x1 <= (position.x - radius/2) && (position.x + radius/2) <= x2)
-        velocity = VELOCITY_UP * (1.f / weight_factor);
-    else
-        velocity = VELOCITY_DOWN *(1.f/ weight_factor);*/
 }
+
+
 
 void Bubble::show()
 {
     std::cout <<"y: "<< position.y << std::endl;
+}
+
+void Bubble::manageMovement(Fan& fan)
+{
+    if (fan.checkCollision(position.x + radius / 2))
+    {
+        if (fan.getFanState() == WIND)
+        {
+            velocity = -VELOCITY_UP * (1.f / weight_factor);
+        }
+    }
+    else
+    {
+        velocity = VELOCITY_DOWN * (weight_factor);
+    }
+
+    move();
 }

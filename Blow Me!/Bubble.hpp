@@ -25,6 +25,7 @@ public:
     void move();
     void checkFanInfluence(Fan& fan);
     void show();
+    void manageMovement(Fan& fan);
 };
 
 #endif

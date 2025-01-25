@@ -37,7 +37,7 @@ void Animation::draw(int64_t& global_frame, int pos_x, int pos_y, float scale) {
         }
     }
     Rectangle source_rect = {
-        width * current_frame, 
+        (float)width * current_frame, 
         0.f, 
         invertRatio * width,
         height
