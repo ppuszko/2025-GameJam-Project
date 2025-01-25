@@ -12,11 +12,11 @@ int main()
     int screenWidth = 1200;
 
     InitWindow(screenWidth, screenHeight, "dupa");
-    Vector2 bubblePos{ 100, screenHeight / 2 };
+    Vector2 bubblePos{ 100, screenHeight / 2.f };
     int64_t globalFrames = 0;
 
     Bubble bubble(16.f, 5, screenHeight, "../Assets/bubble_pop.png", bubblePos, 8, 6, 0, 0, 3);
-    Fan fan(600, 100, "../Assets/fan.png", 10, 6);
+    Fan fan(100, 100, "../Assets/fan.png", 10, 6);
 
     SetTargetFPS(60);
     while (!WindowShouldClose())
