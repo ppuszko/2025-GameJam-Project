@@ -2,13 +2,13 @@
 
 #include "Fan.hpp"
 
-Fan::Fan(double x_, state state_of_fan_)
- : state_of_fan(state_of_fan_)
+Fan::Fan(float x_, state state_of_fan_)
+ : stateOfFan(state_of_fan_)
 {
     x = x_ > 0 ? -x_ : x_;
 }
 
-void Fan::update_velocity(double velocity_)
+void Fan::updateVelocity(float velocity_)
 {
     velocity = velocity_;
 }
@@ -18,23 +18,28 @@ void Fan::update()
     x += velocity;
 }
 
-void Fan::switch_state()
+void Fan::switchState()
 {
-    if (state_of_fan == WIND)
-        state_of_fan = FIRE;
+    if (stateOfFan == WIND)
+        stateOfFan = FIRE;
     else
-        state_of_fan = WIND;
+        stateOfFan = WIND;
 }
 
 void Fan::draw()
 {
-    std::cout << "x: "<< x <<" state_of_fan: "<< state_of_fan <<" velocity: "<< velocity << std::endl;
+    std::cout << "x: "<< x <<" state_of_fan: "<< stateOfFan <<" velocity: "<< velocity << std::endl;
 }
 
-bool Fan::check_colision(double x1, double x2)
+bool Fan::checkCollision(float x1)
 {
-    if (x - RADIUS <= x1 && x2 <= x + RADIUS)
+    if (x >= x1 && x1 <= x + RADIUS)
         return true;
     else
         return false;
+}
+
+state Fan::getFanState()
+{
+    return stateOfFan;
 }

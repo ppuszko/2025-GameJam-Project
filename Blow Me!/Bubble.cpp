@@ -21,12 +21,24 @@ void Bubble::move()
             position.y = minHeight - radius;
     }
 
-void Bubble::updateVelocity(float x1, float x2)
+void Bubble::checkFanInfluence(Fan& fan)
 {
-    if (x1 <= (position.x - radius/2) && (position.x + radius/2) <= x2)
+    if(fan.checkCollision(position.x + radius/2))
+    {
+        if (fan.getFanState() == WIND)
+        {
+            velocity = VELOCITY_UP * (1.f / weight_factor);
+        } 
+    }
+    else
+    {
+        velocity = VELOCITY_DOWN * (1.f / weight_factor);
+    }
+
+    /*if (x1 <= (position.x - radius/2) && (position.x + radius/2) <= x2)
         velocity = VELOCITY_UP * (1.f / weight_factor);
     else
-        velocity = VELOCITY_DOWN *(1.f/ weight_factor);
+        velocity = VELOCITY_DOWN *(1.f/ weight_factor);*/
 }
 
 void Bubble::show()

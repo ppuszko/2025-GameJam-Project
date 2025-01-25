@@ -2,6 +2,8 @@
 #define BUBBLE_HPP
 #include <raylib.h>
 
+#include "Fan.hpp"
+
 class Bubble
 {
 private:
@@ -19,7 +21,7 @@ public:
     Bubble(float x_ = 1.0, float y_ = 1.0, float radius_ = 1.0, float velocity_ = 0.f, int scrH = 1200);
 
     void move();
-    void updateVelocity(float x1, float x2);
+    void checkFanInfluence(Fan& fan);
     void show();
 };
 

@@ -9,17 +9,19 @@ class Fan
     static constexpr float RADIUS = 16;
 
     float x;
-    state state_of_fan;
-    double velocity;
+    state stateOfFan;
+    float velocity;
 
   public:
-    Fan(double x_ = 5, state state_of_fan_ = WIND);
+    Fan(float x_ = 5, state state_of_fan_ = WIND);
 
-    void update_velocity(double velocity_);
+    void updateVelocity(float velocity_);
     void update();
-    void switch_state();
+    void switchState();
     void draw();
-    bool check_colision(double x1, double x2);
+    bool checkCollision(float x1);
+    state getFanState();
+
 };
 
 #endif
