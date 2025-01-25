@@ -15,15 +15,16 @@ private:
     double radius;
     double velocity;
     double weight_factor;
+    void checkFanInfluence(Fan& fan);
+    void move();
+    
+    //debug
+    void show();
 
 public:
     Bubble(float radius_, float velocity_, int scrH, const char* path, Vector2 pos,
         int frameSpd, int frameCnt, float velocityX, bool shouldInvert, float scale = 1.f);
-
-    void move();
-    void checkFanInfluence(Fan& fan);
-    void show();
-    void manageMovement(Fan& fan);
+    void update(Fan& fan);
 };
 
 #endif
