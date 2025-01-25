@@ -5,11 +5,14 @@ const int screenHeight = 800;
 const int screenWidth = 1200;
 const int animationSpeed = 8;
 const char* const title = "Blow Me!";
+const int fps = 60;
 
+//enemy entity:
+const float enemyVelocityX = 14;
 //bird entity
 const int birdFrameCount = 7;
 const char* const birdPath = "../Assets/bird.png";
-const float velocityX = 14;
+
 
 
 //fan constructor details
