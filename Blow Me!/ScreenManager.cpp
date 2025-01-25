@@ -18,7 +18,7 @@ void ScreenManager::_createObjects()
     _background = new Background();
     _bubble = new Bubble (bubbleRadius, bubbleVelocityY, screenHeight, bubbIdlePath, bubblePosition, animationSpeed, bubbIdleFrameCount, 0, 0, bubbleScale);
     _fan = new Fan(fanPositionX, fanRadius, fanVelocity, fanScale, fanPath, fanFrameCount, animationSpeed);
-    _entity = new Entity(birdPath, { 800, 500 }, animationSpeed, birdFrameCount, enemyVelocityX, 1, birdScale);
+    _entity = new Entity(initArr[DUCK].path, { 800, 500 }, animationSpeed, initArr[DUCK].frameCount, enemyVelocityX, 1, initArr[DUCK].scale);
 }
 
 void ScreenManager::drawModel()
