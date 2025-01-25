@@ -1,11 +1,10 @@
 #pragma once
 #include <raylib.h>
+#include "Details.hpp"
 #include "Background.hpp"
+#include "Bubble.hpp"
+#include "Fan.hpp"
 #include "Entity.hpp"
-
-#define SCREEN_WIDTH 1200
-#define SCREEN_HEIGHT 800
-#define FPS 60
 
 class ScreenManager
 {
@@ -18,11 +17,13 @@ private:
 	void _createObjects();
 	void _udpateModel();
 	Background* _background;
-	int64_t _globalFrame;
-	Entity* _bird;
+	int64_t globalFrames = 0;
+	Bubble* _bubble; 
+	Fan* _fan;
+	Entity* _entity;
+
 	/*
-	Bubble bubble;
-	Fan fan;
+	* TODO
 	entity list;
 	*/
 };

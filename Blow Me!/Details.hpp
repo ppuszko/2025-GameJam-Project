@@ -5,6 +5,7 @@ const int screenHeight = 800;
 const int screenWidth = 1200;
 const int animationSpeed = 8;
 const char* const title = "Blow Me!";
+const int fps = 60;
 
 //bird entity
 const int birdFrameCount = 7;
