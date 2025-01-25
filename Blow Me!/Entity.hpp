@@ -1,6 +1,7 @@
 #pragma once
+#include <queue>
 #include <raylib.h>
-#include "Animation.hpp";
+#include "Animation.hpp"
 
 class Entity
 {
@@ -26,4 +27,22 @@ protected:
 	Animation* animComponent = nullptr;
 
 
+};
+
+class EntityQueue
+{
+  private:
+	std::queue<Entity> queue;
+
+  public:
+	void add_entity(const char* path, Vector2 pos, 
+		int frameSpd, int frameCnt, 
+		float velocityX, bool shouldInvert, float scale = 1.f)
+	{
+		queue.push(Entity(path, pos, frameSpd, frameCnt, velocityX, shouldInvert, scale));
+	}
+	Entity get_entity()
+	{
+		return queue.front();
+	}
 };
