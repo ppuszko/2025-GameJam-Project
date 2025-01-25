@@ -48,7 +48,7 @@ void Background::drawBackground()
 
     BeginBlendMode(BLEND_ALPHA);
     DrawTextureEx(midground, { _scrollingMidScreen, 0 }, 0.0f, _midScreenScale, Fade(WHITE, 0.6f));
-    DrawTextureEx(midground, { midground.width * _midScreenScale + _scrollingMidScreen, 10 }, 0.0f, _midScreenScale, Fade(WHITE, 0.6f));
+    DrawTextureEx(midground, { midground.width * _midScreenScale + _scrollingMidScreen, 0 }, 0.0f, _midScreenScale, Fade(WHITE, 0.6f));
     
     DrawTextureEx(foreground, { _scrollingForeScreen, 8 }, 0.0f, _foreScreenScale, Fade(SKYBLUE, 0.3f));
     DrawTextureEx(foreground, { foreground.width * _foreScreenScale + _scrollingForeScreen, 8 }, 0.0f, _foreScreenScale, Fade(SKYBLUE, 0.3f));
