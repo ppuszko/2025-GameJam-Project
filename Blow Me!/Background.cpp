@@ -44,12 +44,12 @@ void Background::resetScrolling()
 
 void Background::drawBackground()
 {
-    DrawTextureEx(background, Vector2 { _scrollingBackScreen, 20 }, 0.0f, 2.0f, WHITE);
-    DrawTextureEx(background, Vector2 { background.width * 2 + _scrollingBackScreen, 20 }, 0.0f, 2.0f, WHITE);
+    DrawTextureEx(background, { _scrollingBackScreen, 20 }, 0.0f, 2.0f, WHITE);
+    DrawTextureEx(background, { background.width * 2 + _scrollingBackScreen, 20 }, 0.0f, 2.0f, WHITE);
 
-    DrawTextureEx(midground, Vector2 { _scrollingMidScreen, 20 }, 0.0f, 2.0f, WHITE);
-    DrawTextureEx(midground, Vector2 { midground.width * 2 + _scrollingMidScreen, 20 }, 0.0f, 2.0f, WHITE);
+    DrawTextureEx(midground, { _scrollingMidScreen, 20 }, 0.0f, 2.0f, WHITE);
+    DrawTextureEx(midground, { midground.width * 2 + _scrollingMidScreen, 20 }, 0.0f, 2.0f, WHITE);
 
-    DrawTextureEx(foreground, Vector2 { _scrollingForeScreen, 70 }, 0.0f, 2.0f, WHITE);
-    DrawTextureEx(foreground, Vector2 { foreground.width * 2 + _scrollingForeScreen, 70 }, 0.0f, 2.0f, WHITE);
+    DrawTextureEx(foreground, { _scrollingForeScreen, 70 }, 0.0f, 2.0f, WHITE);
+    DrawTextureEx(foreground, { foreground.width * 2 + _scrollingForeScreen, 70 }, 0.0f, 2.0f, WHITE);
 }
