@@ -36,7 +36,7 @@ class EntityQueue
   public:
 	EntityQueue();
 
-	void addEntity();
+	void addEntity(int i);
 
 
 	Entity getEntity() { return queue.front(); }

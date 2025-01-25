@@ -16,14 +16,15 @@ private:
 	void _initWindow(int screenWidth, int screenHeight);
 	void _createObjects();
 	void _udpateModel();
+	void _generateEntity();
 	Background* _background;
 	int64_t globalFrames = 0;
 	Bubble* _bubble; 
 	Fan* _fan;
+	//prototype
 	Entity* _entity;
 
-	/*
-	* TODO
-	entity list;
-	*/
+	//final entity list
+	EntityQueue* _entityQueue;
+
 };

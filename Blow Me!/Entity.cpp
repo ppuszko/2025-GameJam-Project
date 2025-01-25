@@ -46,12 +46,13 @@ EntityQueue::EntityQueue()
 	enemiesTypeQuantities = {0};
 }
 
-void EntityQueue::addEntity()
+void EntityQueue::addEntity(int i)
 {
 	Vector2 pos = {screenWidth, static_cast<float>(GetRandomValue(100, 700))};
 
-	int randomNumber = GetRandomValue(0, enemyTypeCount - 1);
-	
+	//int randomNumber = GetRandomValue(0, enemyTypeCount - 1);
+	int randomNumber = i;
+
 	while (enemiesTypeQuantities[randomNumber] > maxEnemiesPerType)
 		if (randomNumber == enemyTypeCount)
 			randomNumber = 0;
