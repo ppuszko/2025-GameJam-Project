@@ -28,9 +28,8 @@ void ScreenManager::_createObjects()
     _menu = new Menu();
     _bubble = new Bubble (bubbleRadius, bubbleVelocityY, screenHeight, textureArr[BUBBLE_TXTR], bubblePosition, animationSpeed, bubbIdleFrameCount, 0, 0, bubbleScale);
     _fan = new Fan(fanPositionX, fanRadius, fanVelocity, fanScale, textureArr[FAN_TXTR], fanFrameCount, animationSpeed);
-    //_entity = new Entity(initArr[DUCK].path, { 800, 500 }, animationSpeed, initArr[DUCK].frameCount, enemyVelocityX, 1, initArr[DUCK].scale);
     _entityQueue = new EntityQueue();
-    _bubble->checkCollision(screenHeight, *_entityQueue);
+    //_bubble->checkCollision(screenHeight, *_entityQueue);
 }
 
 void ScreenManager::drawModel()
@@ -41,12 +40,6 @@ void ScreenManager::drawModel()
 
     //Users space to draw objects on screen
     _background->drawBackground();
-
-    //_bubble->show(globalFrames);
-    ////_entity->display(globalFrames);
-    //_fan->update(screenWidth, globalFrames);
-    //_entityQueue->display(globalFrames);
-    //_bubble->checkCollision(screenHeight, *_entityQueue);
 
     if (_menu->get_startflag())
     {
@@ -85,7 +78,6 @@ void ScreenManager::_udpateModel()
     _background->resetScrolling();
     _bubble->update(*_fan);
     _fan->update(screenWidth, globalFrames);
-    //_entity->move();
     _generateEntity();
     _entityQueue->update();
 }
