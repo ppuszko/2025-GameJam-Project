@@ -46,7 +46,7 @@ class EntityQueue
 	~EntityQueue();
 
 	void addEntity(int i);
-	void addEntity(int i, Texture2D *txtr);
+	void addEntity(Texture2D *txtr);
 
 
 	const std::pair<Entity *, enemyType> &getEntity() { return queue.front(); }

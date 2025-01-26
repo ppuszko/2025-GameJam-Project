@@ -19,6 +19,7 @@ void ScreenManager::_loadTextures() {
     textureArr[BUBBLE_TXTR] = LoadTexture(bubbIdlePath);
     textureArr[FAN_TXTR] = LoadTexture(fanPath);
     textureArr[DUCK_TXTR] = LoadTexture("../Assets/bird.png");
+    textureArr[CLOUD_TXTR] = LoadTexture("../Assets/cloud.png");
 }
 
 void ScreenManager::_createObjects()
@@ -73,8 +74,8 @@ void ScreenManager::_udpateModel()
 
 void ScreenManager::_generateEntity()
 {
-    if(globalFrames%40 == 0)
+    if(globalFrames%50 == 0)
     {
-        _entityQueue->addEntity(0, textureArr);
+        _entityQueue->addEntity(textureArr);
     }
 }
