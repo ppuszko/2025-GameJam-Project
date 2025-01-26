@@ -1,14 +1,15 @@
-#version 100
-
-precision mediump float;
+#version 330
 
 // Input vertex attributes (from vertex shader)
-varying vec2 fragTexCoord;
-varying vec4 fragColor;
+in vec2 fragTexCoord;
+in vec4 fragColor;
 
 // Input uniform values
 uniform sampler2D texture0;
 uniform vec4 colDiffuse;
+
+// Output fragment color
+out vec4 finalColor;
 
 uniform float seconds;
 
@@ -32,5 +33,5 @@ void main() {
     p.x += cos((fragTexCoord.y - boxTop) * freqX / ( pixelWidth * 750.0) + (seconds * speedX)) * ampX * pixelWidth;
     p.y += sin((fragTexCoord.x - boxLeft) * freqY * aspect / ( pixelHeight * 750.0) + (seconds * speedY)) * ampY * pixelHeight;
 
-    gl_FragColor = texture2D(texture0, p)*colDiffuse*fragColor;
+    finalColor = texture(texture0, p)*colDiffuse*fragColor;
 }
