@@ -14,13 +14,13 @@ enum textureType {DUCK_TXTR, CLOUD_TXTR, RAIN_CLOUD_TXTR, STORM_CLOUD_TXTR, BUBB
 const int textureCount = 6;
 
 const int animationSpeed = 8;
-const float velocityX = 14;
-const float enemyVelocityX = 14;
+const float velocityX = 1;
+const float enemyVelocityX = 1;
 const char* const title = "Blow Me!";
 
 enum enemyType { DUCK, CLOUD, RAIN_CLOUD, STORM_CLOUD };
 const int enemyTypeCount = 4;
-const int maxEnemiesPerType = 4;
+const int maxEnemiesPerType = 2;
 
 struct initParams
 {
@@ -35,13 +35,13 @@ const initParams initArr[enemyTypeCount] =
     {
         7,
         "../Assets/bird.png",
-        3.0f,
+        2.0f,
         true
     },
     {
         1,
         "../Assets/cloud.png",
-        4.0f,
+        5.0f,
         false
     },
     {
