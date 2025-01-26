@@ -76,7 +76,11 @@ void Bubble::manageWeightFactor()
     if (weight_factor != 1.0f)
     {
         framesElapsedSinceWeightFactorChanged++;
-        if (framesElapsedSinceWeightFactorChanged >= 90) changeWeightFactor(1.f);
+        if (framesElapsedSinceWeightFactorChanged >= 90)
+        {
+            changeWeightFactor(1.f);
+            framesElapsedSinceWeightFactorChanged = 0;
+        }
     }
 }
 
@@ -93,7 +97,7 @@ void Bubble::checkCollision( int screenHeight, EntityQueue& eq)
 
         if (entityCollisonResult.second == CLOUD)
         {
-            changeWeightFactor(1.5f);
+            changeWeightFactor(6.f);
         }
 
         std::cout << "collided" << std::endl;
@@ -114,7 +118,7 @@ void Bubble::checkFanInfluence(Fan& fan)
     {
         velocity += VELOCITY_DOWN * ( weight_factor) * 0.1f;
     }
-    velocity = std::clamp(velocity, -6.5f, 4.5f);
+    velocity = std::clamp(velocity, -6.f, 4.5f);
 }
 
 
@@ -128,5 +132,6 @@ void Bubble::checkFanInfluence(Fan& fan)
 void Bubble::update(Fan& fan)
 {
     checkFanInfluence(fan);
+    manageWeightFactor();
     move();
 }
