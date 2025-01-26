@@ -28,7 +28,7 @@ void ScreenManager::_createObjects()
     _fan = new Fan(fanPositionX, fanRadius, fanVelocity, fanScale, textureArr[FAN_TXTR], fanFrameCount, animationSpeed);
     //_entity = new Entity(initArr[DUCK].path, { 800, 500 }, animationSpeed, initArr[DUCK].frameCount, enemyVelocityX, 1, initArr[DUCK].scale);
     _entityQueue = new EntityQueue();
-    _bubble->checkCollision(screenHeight);
+    _bubble->checkCollision(screenHeight, *_entityQueue);
 }
 
 void ScreenManager::drawModel()
