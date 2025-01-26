@@ -6,12 +6,12 @@ Background::Background()
     setScrolling();
 }
 
-Background::~Background()
+/*Background::~Background()
 {
     UnloadTexture(background);
     UnloadTexture(midground); 
     UnloadTexture(foreground);
-}
+}*/
 
 void Background::loadTexture()
 {

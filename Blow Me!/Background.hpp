@@ -6,7 +6,7 @@ class Background
 {
 public:
     Background();
-    ~Background();
+    //~Background();
     void updateScrolling();
     void resetScrolling();
     void drawBackground();
