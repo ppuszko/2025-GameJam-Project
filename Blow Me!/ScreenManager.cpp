@@ -34,6 +34,7 @@ void ScreenManager::drawModel()
     _bubble->display(globalFrames);
     //_entity->display(globalFrames);
     _fan->update(screenWidth, globalFrames);
+    _entityQueue->display(globalFrames);
   
     EndDrawing();
 }
@@ -55,6 +56,7 @@ void ScreenManager::_udpateModel()
     _fan->update(screenWidth, globalFrames);
     _entity->move();
     _generateEntity();
+    _entityQueue->update();
 }
 
 void ScreenManager::_generateEntity()

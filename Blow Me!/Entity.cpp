@@ -50,7 +50,7 @@ void EntityQueue::addEntity(int i)
 {
 	Vector2 pos = {screenWidth, static_cast<float>(GetRandomValue(100, 700))};
 
-	int selectedType = GetRandomValue(0, enemyTypeCount - 1);
+	int selectedType = i; //GetRandomValue(0, enemyTypeCount - 1);
 	
 	while (enemiesTypeQuantities[selectedType] > maxEnemiesPerType)
 		if (selectedType == enemyTypeCount)
@@ -63,17 +63,27 @@ void EntityQueue::addEntity(int i)
 	float newScale = initArr[selectedType].scale * static_cast<float>(GetRandomValue(100, 200)) / 200.0f;
 	bool shouldInvert = initArr[selectedType].shouldInvert;
 
-	queue.push(Entity(path, pos, animationSpeed, frameCnt, velocityX, shouldInvert, newScale));
+	queue.push(new Entity(path, pos, animationSpeed, frameCnt, velocityX, shouldInvert, newScale));
 }
 
-void EntityQueue::updateQueue(int64_t &global_frame)
+void EntityQueue::update()
 {
 	for (int i = 0; i < queue.size(); ++i)
 	{
 		auto t = queue.front();
 		queue.pop();
-		t.display(global_frame);
-		t.move();
+		t->move();
+		queue.push(t);
+	}
+}
+
+void EntityQueue::display(int64_t &global_frame)
+{
+	for (int i = 0; i < queue.size(); ++i)
+	{
+		auto t = queue.front();
+		queue.pop();
+		t->display(global_frame);
 		queue.push(t);
 	}
 }

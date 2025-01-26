@@ -30,7 +30,7 @@ protected:
 class EntityQueue
 {
   private:
-	std::queue<Entity> queue;
+	std::queue<Entity *> queue;
 	std::array<int, enemyTypeCount> enemiesTypeQuantities;
 
   public:
@@ -39,7 +39,8 @@ class EntityQueue
 	void addEntity(int i);
 
 
-	Entity getEntity() { return queue.front(); }
-	std::queue<Entity> &getQueue() { return queue; }
-	void updateQueue(int64_t &global_frame);
+	const Entity *getEntity() { return queue.front(); }
+	std::queue<Entity *> &getQueue() { return queue; }
+	void update();
+	void display(int64_t &global_frame);
 };
