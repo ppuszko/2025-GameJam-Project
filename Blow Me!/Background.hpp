@@ -3,7 +3,7 @@
 #include "raylib.h"
 #include "Details.hpp"
 
-#define GLSL_VERSION            330
+#define GLSL_VERSION            100
 
 class Background 
 {
