@@ -107,17 +107,18 @@ void EntityQueue::addEntity(int i)
 
 void EntityQueue::addEntity(int i, Texture2D *txtr)
 {
-	if (queue.size() >= 3) return;
+	if (queue.size() >= 4) return;
 
 	Vector2 pos = {screenWidth, static_cast<float>(GetRandomValue(100, 700))};
 
 	int selectedType = i; //GetRandomValue(0, enemyTypeCount - 1);
 	
-	while (enemiesTypeQuantities[selectedType] >= maxEnemiesPerType)
+	while (enemiesTypeQuantities[selectedType] > maxEnemiesPerType)
+	{
+		++selectedType;
 		if (selectedType == enemyTypeCount)
 			selectedType = 0;
-		else
-			++selectedType;
+	}
 	++enemiesTypeQuantities[selectedType];
 	
 	//const char *const path = initArr[selectedType].path;
@@ -138,6 +139,11 @@ void EntityQueue::update()
 		//there is no bird deletion
 		if (!t.first->isOutOfScreen())
 			queue.push(t);
+		else
+		{
+			delete t.first;
+			--enemiesTypeQuantities[t.second];
+		}
 	}
 }
 
