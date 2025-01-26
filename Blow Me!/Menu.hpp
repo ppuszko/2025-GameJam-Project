@@ -19,7 +19,9 @@ class Menu {
         Vector2 option_dimensions;
     public:
         bool get_exitflag() { return exitflag; }
-        bool get_startflag() { return startflag; }    
+        bool get_startflag() { return startflag; }
+        void set_exitflag(bool setValue) { exitflag = setValue; }
+        void set_startflag(bool setValue) {  startflag = setValue; }
         Menu();
         void reset_menu();
         void draw_options();

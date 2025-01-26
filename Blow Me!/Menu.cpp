@@ -1,6 +1,7 @@
 #include "Menu.hpp"
 #include <cstdlib>
 #include <raylib.h>
+#include <iostream>
 
 Menu::Menu() {
   logo_txtr = LoadTexture("../Assets/Logo.png");
@@ -15,10 +16,11 @@ void Menu::reset_menu() {
 }
 
 void Menu::check_options() {
-  if (GetMouseX() >= 600 - option_dimensions.x && GetMouseX() <= 600 + option_dimensions.x) {
-    if (GetMouseY() >= 300 && GetMouseY() <= 300 + option_dimensions.y * 2)
+  if (GetMouseX() >= screenWidth / 2 - option_dimensions.x && GetMouseX() <= screenWidth / 2 + option_dimensions.x)
+  {
+    if (GetMouseY() >= screenHeight * 0.45f && GetMouseY() <= screenHeight * 0.45f + option_dimensions.y * 2)
       selected = START;
-    else if (GetMouseY() >= 450 && GetMouseY() <= 450 + option_dimensions.y * 2)
+    else if (GetMouseY() >= screenHeight * 0.6f && GetMouseY() <= screenHeight * 0.6f + option_dimensions.y * 2)
       selected = EXIT;
     else
       selected = UNSELECTED;
@@ -27,7 +29,7 @@ void Menu::check_options() {
 }
 
 void Menu::draw_options() {
-  DrawTextureEx(logo_txtr, { 600 - logo_dimensions.x * 2.f, 20}, 0, 4, WHITE);
+    DrawTextureEx(logo_txtr, { screenWidth / 2 - logo_dimensions.x * 2 + 30, screenHeight * 0.1f }, 0, 4, WHITE);
 
   Rectangle start_source = {
     0,
@@ -44,15 +46,15 @@ void Menu::draw_options() {
   };
 
   Rectangle start_dest = {
-    600 - option_dimensions.x,
-    300,
+    screenWidth / 2 - option_dimensions.x,
+    screenHeight* 0.45f,
     option_dimensions.x * 2,
     option_dimensions.y * 2
   };
 
   Rectangle exit_dest = {
-    600 - option_dimensions.x,
-    450,
+    screenWidth / 2 - option_dimensions.x,
+    screenHeight * 0.6f,
     option_dimensions.x * 2,
     option_dimensions.y * 2
   };
