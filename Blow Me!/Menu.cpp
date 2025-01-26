@@ -3,12 +3,17 @@
 int main() {
   
   InitWindow(1200, 800, "Blow Me!");
+  InitAudioDevice();
+  Music music = LoadMusicStream("../Assets/music/muzyka1.mp3");
+  PlayMusicStream(music);
+
   Texture logo = LoadTexture("../Assets/Logo.png");
   Texture start = LoadTexture("../Assets/start.png");
   Texture exit = LoadTexture("../Assets/exit.png");
   Texture background = LoadTexture("../Assets/background/Ocean_2/5.png");
   
   while (!WindowShouldClose()) {
+    UpdateMusicStream(music);
     BeginDrawing(); 
     {
       ClearBackground(WHITE);
