@@ -9,6 +9,9 @@ const int screenHeight = 900;
 const int screenWidth = 1600;
 const int fps = 60;
 
+enum textureType {BUBBLE_TXTR, FAN_TXTR, DUCK_TXTR, CLOUD_TXTR, RAIN_CLOUD_TXTR, STORM_CLOUD_TXTR };
+const int textureCount = 6;
+
 const int animationSpeed = 8;
 const float velocityX = 14;
 const float enemyVelocityX = 14;
