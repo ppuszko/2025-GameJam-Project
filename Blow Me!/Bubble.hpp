@@ -31,7 +31,7 @@ private:
    
 
 public:
-    void reset() {isDead = false;}
+    void reset() { isDead = false; position.y = 250; }
     Bubble(float radius_, float velocity_, int scrH, const char* path, Vector2 pos,
         int frameSpd, int frameCnt, float velocityX, bool shouldInvert, float scale = 1.f);
     Bubble(float radius_, float velocity_, int scrH, Texture2D & txtr, Vector2 pos,

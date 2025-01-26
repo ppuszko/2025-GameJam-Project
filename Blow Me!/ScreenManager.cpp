@@ -49,7 +49,7 @@ void ScreenManager::drawModel()
     //_entityQueue->display(globalFrames);
     //_bubble->checkCollision(screenHeight, *_entityQueue);
 
-    if (_menu->get_startflag())
+    if (_isGameStarted)
     {
         if (!_bubble->checkDeath()) {
             _bubble->update(*_fan);
@@ -73,6 +73,12 @@ void ScreenManager::drawModel()
             };
             DrawTexturePro(textureArr[BUBBLE_DEATH_TXTR], death_source, death_dest, {0, 0}, 0, WHITE);
             if (deathTimer < 5) deathTimer += 0.5;
+            if (deathTimer >= 5) { 
+                _isGameStarted = false; 
+                deathTimer = 0;
+                _menu->set_startflag(_isGameStarted);
+
+            }
         }
     }
     else if (_menu->get_exitflag())
@@ -82,8 +88,10 @@ void ScreenManager::drawModel()
     }
     else
     {
+        _bubble->reset();
         _menu->draw_options();
         _menu->check_options();
+        _isGameStarted = _menu->get_startflag();
     }
 
     EndDrawing();

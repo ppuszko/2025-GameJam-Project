@@ -58,10 +58,7 @@ std::pair<bool, enemyType> Bubble::checkCollisionWithEntity(EntityQueue& eq)
         auto queueElem = queue.front();
         queue.pop();
         queue.push(queueElem);
-        std::cout << queueElem.first->getCollider().x << " y: "
-            << queueElem.first->getCollider().y << " w: "
-            << queueElem.first->getCollider().width <<
-            " h: " << queueElem.first->getCollider().height << std::endl;
+        
         if (CheckCollisionCircleRec(position, radius, queueElem.first->getCollider()))
         {
             res = { true, queueElem.second };
