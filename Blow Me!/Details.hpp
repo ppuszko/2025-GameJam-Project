@@ -39,9 +39,9 @@ const initParams initArr[enemyTypeCount] =
         true
     },
     {
-        0,
+        1,
         "../Assets/cloud.png",
-        0.0f,
+        4.0f,
         false
     },
     {
