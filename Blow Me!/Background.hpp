@@ -1,4 +1,5 @@
-#pragma once
+#ifndef BACKGROUND_HPP
+#define BACKGROUND_HPP
 #include "raylib.h"
 
 class Background 
@@ -21,3 +22,5 @@ private:
     void loadTexture();
     void setScrolling();
 };
+
+#endif

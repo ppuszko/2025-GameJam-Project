@@ -1,4 +1,5 @@
 #include "Fan.hpp"
+#include <raylib.h>
 
 Fan::Fan(float x_, float radius, float velocity_, float scale_, 
     const char* path, int frameCount, int frameSpeed, state state_of_fan_)
@@ -9,6 +10,17 @@ Fan::Fan(float x_, float radius, float velocity_, float scale_,
     velocity = velocity_;
     x = x_;
     animComponent = new Animation(path, frameCount, frameSpeed);
+}
+
+Fan::Fan(float x_, float radius, float velocity_, float scale_, 
+    Texture2D & txtr, int frameCount, int frameSpeed, state state_of_fan_)
+ : stateOfFan(state_of_fan_)
+{
+    RADIUS = radius * scale_;
+    scale = scale_;
+    velocity = velocity_;
+    x = x_;
+    animComponent = new Animation(txtr, frameCount, frameSpeed);
 }
 
 Fan::~Fan()

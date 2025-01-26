@@ -1,10 +1,12 @@
-#pragma once
+#ifndef SCREENMANAGER_HPP
+#define SCREENMANAGER_HPP
+
 #include <raylib.h>
 #include "Details.hpp"
 #include "Background.hpp"
 #include "Bubble.hpp"
 #include "Fan.hpp"
-#include "Entity.hpp"
+//#include "Entity.hpp"
 
 class ScreenManager
 {
@@ -12,10 +14,11 @@ public:
 	ScreenManager();
 	~ScreenManager();
 	void drawModel();
+	Texture2D & getTexture(textureType txtr) {return textureArr[txtr];}
 private:
-  Texture2D * textureArr[5];
+  	Texture2D textureArr[textureCount];
 	void _initWindow(int screenWidth, int screenHeight);
-  void _loadTextures();
+  	void _loadTextures();
 	void _createObjects();
 	void _udpateModel();
 	void _generateEntity();
@@ -30,3 +33,5 @@ private:
 	EntityQueue* _entityQueue;
 
 };
+
+#endif
