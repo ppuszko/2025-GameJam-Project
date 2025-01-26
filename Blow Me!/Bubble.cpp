@@ -92,12 +92,16 @@ void Bubble::checkCollision( int screenHeight, EntityQueue& eq)
         || position.y + radius + 1 >= screenHeight 
         || (entityCollisonResult.first ))
     {
-        //DrawRectangle(0, 0, 1000, 900, RED);
-        //invoke death method here
+        DrawRectangle(0, 0, 1000, 900, RED);
+        
 
         if (entityCollisonResult.second == CLOUD)
         {
             changeWeightFactor(3.f);
+        }
+        else
+        {
+            //invoke death method here
         }
 
         std::cout << "collided" << std::endl;
