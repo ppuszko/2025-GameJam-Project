@@ -24,13 +24,45 @@ void Bubble::move()
         position.y = minHeight - radius;
 }
 
-void Bubble::checkCollision( int screenHeight)
+std::pair<bool, enemyType> Bubble::checkCollisionWithEntity(EntityQueue& eq)
 {
-    std::cout << position.y<< " " << radius <<  " "  << position.y + radius + 1 << std::endl;
-    if (position.y - radius/2 <= 0 || position.y + radius + 1 >= screenHeight)
+    //bool CheckCollisionCircleRec(Vector2 center, float radius, Rectangle rec);
+    auto res = std::make_pair<bool, enemyType>(false, DUCK);
+    auto queue = eq.getQueue();
+    int queueSize = queue.size();
+    int counter = 0;
+    while (counter < queueSize)
     {
+        auto queueElem = queue.front();
+        queue.pop();
+        queue.push(queueElem);
+        std::cout << queueElem.first->getCollider().x << " y: "
+            << queueElem.first->getCollider().y << " w: "
+            << queueElem.first->getCollider().width <<
+            " h: " << queueElem.first->getCollider().height << std::endl;
+        if (CheckCollisionCircleRec(position, radius, queueElem.first->getCollider()))
+        {
+            res = { true, queueElem.second };
+            return res;
+        }
+        counter++;
+    }
+    return res;
+}
+
+void Bubble::checkCollision( int screenHeight, EntityQueue& eq)
+{
+    auto entityCollisonResult = checkCollisionWithEntity(eq);
+
+    if (position.y - radius / 2 <= 0 
+        || position.y + radius + 1 >= screenHeight 
+        || (entityCollisonResult.first ))
+    {
+        DrawRectangle(0, 0, 1000, 900, RED);
+        //invoke death method here
         std::cout << "collided" << std::endl;
     }
+
 }
 
 void Bubble::checkFanInfluence(Fan& fan)

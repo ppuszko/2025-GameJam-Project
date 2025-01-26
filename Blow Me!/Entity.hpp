@@ -20,6 +20,11 @@ public:
 	void display(int64_t& globalFrame);
 	void move();
 	bool isOutOfScreen();
+	Rectangle getCollider()
+	{
+		return collisionBox;
+	}
+	
 
 protected:
 	Rectangle collisionBox;
