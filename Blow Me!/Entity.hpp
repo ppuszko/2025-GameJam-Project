@@ -35,6 +35,7 @@ class EntityQueue
 
   public:
 	EntityQueue();
+	~EntityQueue();
 
 	void addEntity(int i);
 

@@ -1,3 +1,4 @@
+#include <queue>
 #include <raylib.h>
 
 #include "Entity.hpp"
@@ -44,6 +45,15 @@ void Entity::move()
 EntityQueue::EntityQueue()
 {
 	enemiesTypeQuantities = {0};
+}
+
+EntityQueue::~EntityQueue()
+{
+	while (queue.empty())
+	{
+		delete queue.front();
+		queue.pop();
+	}
 }
 
 void EntityQueue::addEntity(int i)
