@@ -1,7 +1,9 @@
 #include <queue>
 #include <raylib.h>
+#include <utility>
 
 #include "Entity.hpp"
+#include "Details.hpp"
 
 Entity::Entity(const char* path, Vector2 pos, int frameSpd, 
 	int frameCnt, float velocityX, bool shouldInvert, float scale)
@@ -58,7 +60,7 @@ EntityQueue::~EntityQueue()
 {
 	while (queue.empty())
 	{
-		delete queue.front();
+		delete queue.front().first;
 		queue.pop();
 	}
 }
@@ -83,7 +85,7 @@ void EntityQueue::addEntity(int i)
 	float newScale = initArr[selectedType].scale * static_cast<float>(GetRandomValue(100, 200)) / 200.0f;
 	bool shouldInvert = initArr[selectedType].shouldInvert;
 
-	queue.push(new Entity(path, pos, animationSpeed, frameCnt, velocityX, shouldInvert, newScale));
+	queue.push(std::make_pair(new Entity(path, pos, animationSpeed, frameCnt, velocityX, shouldInvert, newScale), enemyType(selectedType)));
 }
 
 void EntityQueue::update()
@@ -92,7 +94,7 @@ void EntityQueue::update()
 	{
 		auto t = queue.front();
 		queue.pop();
-		t->move();
+		t.first->move();
 		//there is no bird deletion
 		//if (!t->isOutOfScreen())
 			queue.push(t);
@@ -105,7 +107,7 @@ void EntityQueue::display(int64_t &global_frame)
 	{
 		auto t = queue.front();
 		queue.pop();
-		t->display(global_frame);
+		t.first->display(global_frame);
 		queue.push(t);
 	}
 }

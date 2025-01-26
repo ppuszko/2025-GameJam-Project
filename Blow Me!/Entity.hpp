@@ -2,6 +2,7 @@
 
 #include <array>
 #include <raylib.h>
+#include <utility>
 #include <queue>
 
 #include "Animation.hpp"
@@ -31,7 +32,7 @@ protected:
 class EntityQueue
 {
   private:
-	std::queue<Entity *> queue;
+	std::queue<std::pair<Entity *, enemyType>> queue;
 	std::array<int, enemyTypeCount> enemiesTypeQuantities;
 
   public:
@@ -41,8 +42,8 @@ class EntityQueue
 	void addEntity(int i);
 
 
-	const Entity *getEntity() { return queue.front(); }
-	std::queue<Entity *> &getQueue() { return queue; }
+	const std::pair<Entity *, enemyType> &getEntity() { return queue.front(); }
+	std::queue<std::pair<Entity *, enemyType>> &getQueue() { return queue; }
 	void update();
 	void display(int64_t &global_frame);
 };
