@@ -107,7 +107,7 @@ void EntityQueue::addEntity(int i)
 
 void EntityQueue::addEntity(Texture2D *txtr)
 {
-	if (queue.size() >= 2) return;
+	if (queue.size() >= 4) return;
 
 	Vector2 pos = {screenWidth, static_cast<float>(GetRandomValue(100, 700))};
 
