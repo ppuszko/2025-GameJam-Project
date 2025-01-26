@@ -52,6 +52,7 @@ void ScreenManager::drawModel()
     if (_menu->get_startflag())
     {
         if (!_bubble->checkDeath()) {
+            _bubble->update(*_fan);
             _bubble->show(globalFrames);
             _fan->update(screenWidth, globalFrames);
             _entityQueue->display(globalFrames);
@@ -102,7 +103,6 @@ void ScreenManager::_udpateModel()
     globalFrames++;
     _background->updateScrolling();
     _background->resetScrolling();
-    _bubble->update(*_fan);
     _fan->update(screenWidth, globalFrames);
     //_entity->move();
     _generateEntity();
