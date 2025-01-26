@@ -105,7 +105,7 @@ void EntityQueue::addEntity(int i)
 	queue.push(std::make_pair(new Entity(path, pos, animationSpeed, frameCnt, velocityX, shouldInvert, newScale), enemyType(selectedType)));
 }
 
-void EntityQueue::addEntity(int i, Texture2D & txtr)
+void EntityQueue::addEntity(int i, Texture2D *txtr)
 {
 	if (queue.size() >= 3) return;
 
@@ -125,7 +125,7 @@ void EntityQueue::addEntity(int i, Texture2D & txtr)
 	float newScale = initArr[selectedType].scale * static_cast<float>(GetRandomValue(100, 200)) / 200.0f;
 	bool shouldInvert = initArr[selectedType].shouldInvert;
 
-	queue.push(std::make_pair(new Entity(txtr, pos, animationSpeed, frameCnt, velocityX, shouldInvert, newScale), enemyType(selectedType)));
+	queue.push(std::make_pair(new Entity(txtr[selectedType], pos, animationSpeed, frameCnt, velocityX, shouldInvert, newScale), enemyType(selectedType)));
 }
 
 void EntityQueue::update()

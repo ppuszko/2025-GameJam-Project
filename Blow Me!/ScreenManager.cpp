@@ -75,6 +75,6 @@ void ScreenManager::_generateEntity()
 {
     if(globalFrames%40 == 0)
     {
-        _entityQueue->addEntity(0, textureArr[0]);
+        _entityQueue->addEntity(0, textureArr);
     }
 }
