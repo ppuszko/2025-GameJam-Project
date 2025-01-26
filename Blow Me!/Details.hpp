@@ -9,6 +9,10 @@ const int screenHeight = 900;
 const int screenWidth = 1600;
 const int fps = 60;
 
+// Taka kolejność, żeby się pokrywało z enemyType kurwa
+enum textureType {DUCK_TXTR, CLOUD_TXTR, RAIN_CLOUD_TXTR, STORM_CLOUD_TXTR, BUBBLE_TXTR, FAN_TXTR};
+const int textureCount = 6;
+
 const int animationSpeed = 8;
 const float velocityX = 14;
 const float enemyVelocityX = 14;
@@ -16,7 +20,7 @@ const char* const title = "Blow Me!";
 
 enum enemyType { DUCK, CLOUD, RAIN_CLOUD, STORM_CLOUD };
 const int enemyTypeCount = 4;
-const int maxEnemiesPerType = 3;
+const int maxEnemiesPerType = 30;
 
 struct initParams
 {
@@ -66,7 +70,7 @@ const float fanScale = 3.0f;
 const float bubbleRadius = 32;
 const float bubbleVelocityY = 12;
 const float bubbleScale = 2.0f;
-const Vector2 bubblePosition{ 100, screenHeight / 4};
+const Vector2 bubblePosition{ 100, screenHeight / 4.f};
 //bubble pop
 const int bubblePopFrameCount = 6;
 const char* const bubblePopPath = "../Assets/bubble_pop.png";

@@ -2,6 +2,7 @@
 #define FAN_HPP
 
 #include "Animation.hpp"
+#include <raylib.h>
 
 enum state {WIND, FIRE} ;
 
@@ -18,6 +19,7 @@ class Fan
 
   public:
     Fan(float x_ ,float radius, float velocity, float scale, const char* path, int frameCount, int frameSpeed, state state_of_fan_ = WIND);
+    Fan(float x_ ,float radius, float velocity, float scale, Texture2D & txtr, int frameCount, int frameSpeed, state state_of_fan_ = WIND);
 
     ~Fan();
 

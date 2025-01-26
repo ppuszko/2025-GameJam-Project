@@ -12,6 +12,16 @@ Animation::Animation(const char * path,
     invertRatio = shouldInvert ? -1 : 1;
 }
 
+Animation::Animation(Texture2D & _texture, 
+    int _frame_count, int _frame_speed, bool shouldInvert) {
+    texture = _texture;
+    width = texture.width/_frame_count;
+    height = texture.height;
+    frame_count = _frame_count;
+    frame_speed = _frame_speed;
+    invertRatio = shouldInvert ? -1 : 1;
+}
+
 Animation::Animation()
 {
     frame_count = 0;

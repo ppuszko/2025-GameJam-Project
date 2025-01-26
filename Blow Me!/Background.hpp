@@ -1,4 +1,5 @@
-#pragma once
+#ifndef BACKGROUND_HPP
+#define BACKGROUND_HPP
 #include "raylib.h"
 #include "Details.hpp"
 
@@ -8,7 +9,7 @@ class Background
 {
 public:
     Background();
-    ~Background();
+    //~Background();
     void updateScrolling();
     void resetScrolling();
     void drawBackground();

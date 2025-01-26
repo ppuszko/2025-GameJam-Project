@@ -7,13 +7,13 @@ Background::Background()
     setShaders();
 }
 
-Background::~Background()
+/*Background::~Background()
 {
     UnloadShader(shader);
     UnloadTexture(background);
     UnloadTexture(midground); 
     UnloadTexture(foreground);
-}
+}*/
 
 void Background::loadTexture()
 {
