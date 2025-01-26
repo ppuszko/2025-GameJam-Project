@@ -126,7 +126,7 @@ void EntityQueue::addEntity(Texture2D *txtr)
 	float newScale = initArr[selectedType].scale * static_cast<float>(GetRandomValue(100, 200)) / 100.0f;
 	bool shouldInvert = initArr[selectedType].shouldInvert;
 
-	queue.push(std::make_pair(new Entity(txtr[selectedType], pos, animationSpeed, frameCnt, 8, shouldInvert, newScale), enemyType(selectedType)));
+	queue.push(std::make_pair(new Entity(txtr[selectedType], pos, animationSpeed, frameCnt, 10, shouldInvert, newScale), enemyType(selectedType)));
 }
 
 void EntityQueue::update()
