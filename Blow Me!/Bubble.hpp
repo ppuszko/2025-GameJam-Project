@@ -1,6 +1,8 @@
 #ifndef BUBBLE_HPP
 #define BUBBLE_HPP
 #include <raylib.h>
+#include <utility>
+
 
 #include "Fan.hpp"
 #include "Entity.hpp"
@@ -17,7 +19,10 @@ private:
     float weight_factor;
     void checkFanInfluence(Fan& fan);
     void move();
-  
+    std::pair<bool, enemyType> isCollidingWithEntity(EntityQueue& eq)
+    {
+        auto res = std::make_pair<bool, enemyType>(false, DUCK);
+    }
    
 
     //debug
@@ -28,6 +33,7 @@ public:
         int frameSpd, int frameCnt, float velocityX, bool shouldInvert, float scale = 1.f);
     void update(Fan& fan);
     void checkCollision(int screenHeight);
+
 };
 
 #endif
