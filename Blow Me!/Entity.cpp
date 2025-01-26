@@ -119,7 +119,7 @@ void EntityQueue::addEntity(int i, Texture2D *txtr)
 		if (selectedType == enemyTypeCount)
 			selectedType = 0;
 	}
-	++enemiesTypeQuantities[selectedType];
+	++enemiesTypeQuantities[selectedType]; 
 	
 	//const char *const path = initArr[selectedType].path;
 	int frameCnt = initArr[selectedType].frameCount;
