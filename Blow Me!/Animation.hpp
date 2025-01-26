@@ -13,11 +13,13 @@ class Animation {
         int height;
         Texture2D texture;
         int invertRatio;
+
     public:
         Animation(const char * path, int _frame_count, int _frame_speed, bool shouldInvert = false);
         Animation(Texture2D & _texture, int _frame_count, int _frame_speed, bool shouldInvert = false);
         Animation();
-        int getSize() {return width;}
+
+        int getSize() { return width; }
 
         void draw(int64_t& global_frame, int pos_x, int pos_y, float scale);
 };

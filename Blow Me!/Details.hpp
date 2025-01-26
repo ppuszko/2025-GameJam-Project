@@ -20,7 +20,7 @@ const char* const title = "Blow Me!";
 
 enum enemyType { DUCK, CLOUD, RAIN_CLOUD, STORM_CLOUD };
 const int enemyTypeCount = 4;
-const int maxEnemiesPerType = 3;
+const int maxEnemiesPerType = 30;
 
 struct initParams
 {
