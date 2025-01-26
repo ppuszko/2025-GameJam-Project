@@ -27,7 +27,7 @@ void Menu::check_options() {
 }
 
 void Menu::draw_options() {
-  DrawTextureEx(logo_txtr, {600 - logo_dimensions.x * 2.f, 20}, 0, 4, WHITE);
+  DrawTextureEx(logo_txtr, { 600 - logo_dimensions.x * 2.f, 20}, 0, 4, WHITE);
 
   Rectangle start_source = {
     0,

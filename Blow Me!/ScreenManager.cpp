@@ -11,7 +11,7 @@ ScreenManager::~ScreenManager()
     delete _background;
     delete _bubble;
     delete _fan;
-    //delete _entity;
+    delete _menu;
     delete _entityQueue;
 }
 
@@ -23,7 +23,8 @@ void ScreenManager::_loadTextures() {
 
 void ScreenManager::_createObjects()
 {
-    _background = new Background();
+    _background = new Background(); 
+    _menu = new Menu();
     _bubble = new Bubble (bubbleRadius, bubbleVelocityY, screenHeight, textureArr[BUBBLE_TXTR], bubblePosition, animationSpeed, bubbIdleFrameCount, 0, 0, bubbleScale);
     _fan = new Fan(fanPositionX, fanRadius, fanVelocity, fanScale, textureArr[FAN_TXTR], fanFrameCount, animationSpeed);
     //_entity = new Entity(initArr[DUCK].path, { 800, 500 }, animationSpeed, initArr[DUCK].frameCount, enemyVelocityX, 1, initArr[DUCK].scale);
@@ -39,13 +40,30 @@ void ScreenManager::drawModel()
 
     //Users space to draw objects on screen
     _background->drawBackground();
-    _bubble->show(globalFrames);
-    //_entity->display(globalFrames);
-    _fan->update(screenWidth, globalFrames);
-    _entityQueue->display(globalFrames);
 
-    _bubble->checkCollision(screenHeight, *_entityQueue);
+    //_bubble->show(globalFrames);
+    ////_entity->display(globalFrames);
+    //_fan->update(screenWidth, globalFrames);
+    //_entityQueue->display(globalFrames);
+    //_bubble->checkCollision(screenHeight, *_entityQueue);
 
+    if (_menu->get_startflag())
+    {
+        _bubble->show(globalFrames);
+        _fan->update(screenWidth, globalFrames);
+        _entityQueue->display(globalFrames);
+        _bubble->checkCollision(screenHeight, *_entityQueue);
+    }
+    else if (_menu->get_exitflag())
+    {
+        EndDrawing();
+        CloseWindow();
+    }
+    else
+    {
+        _menu->draw_options();
+        _menu->check_options();
+    }
 
     EndDrawing();
 }
@@ -77,4 +95,9 @@ void ScreenManager::_generateEntity()
     {
         _entityQueue->addEntity(0, textureArr);
     }
+}
+
+bool ScreenManager::_getExitFlag()
+{
+    return _menu->get_exitflag();
 }

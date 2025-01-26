@@ -145,6 +145,7 @@
     <ClInclude Include="Details.hpp" />
     <ClInclude Include="Fan.hpp" />
     <ClInclude Include="Entity.hpp" />
+    <ClInclude Include="Menu.hpp" />
     <ClInclude Include="ScreenManager.hpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
