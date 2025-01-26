@@ -15,10 +15,15 @@ private:
     float radius;
     float velocity;
     float weight_factor;
+    int framesElapsedSinceWeightFactorChanged = 0;
     void checkFanInfluence(Fan& fan);
     void move();
     std::pair<bool, enemyType> checkCollisionWithEntity(EntityQueue& eq);
-
+    void changeWeightFactor(float factor)
+    {
+        weight_factor = factor;
+    }
+    void manageWeightFactor();
    
 
     //debug

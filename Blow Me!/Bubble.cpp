@@ -5,10 +5,7 @@
 
 void Bubble::show(int64_t& globalFrames)
 {
-  
     this->display(globalFrames);
-
-    
 }
 
 Bubble::Bubble(float radius_, float velocity_,
@@ -74,6 +71,15 @@ std::pair<bool, enemyType> Bubble::checkCollisionWithEntity(EntityQueue& eq)
     return res;
 }
 
+void Bubble::manageWeightFactor()
+{
+    if (weight_factor != 1.0f)
+    {
+        framesElapsedSinceWeightFactorChanged++;
+        if (framesElapsedSinceWeightFactorChanged >= 90) changeWeightFactor(1.f);
+    }
+}
+
 void Bubble::checkCollision( int screenHeight, EntityQueue& eq)
 {
     auto entityCollisonResult = checkCollisionWithEntity(eq);
@@ -84,7 +90,12 @@ void Bubble::checkCollision( int screenHeight, EntityQueue& eq)
     {
         //DrawRectangle(0, 0, 1000, 900, RED);
         //invoke death method here
-        shouldDisplay = false;
+
+        if (entityCollisonResult.second == CLOUD)
+        {
+            changeWeightFactor(1.5f);
+        }
+
         std::cout << "collided" << std::endl;
     }
 
@@ -103,7 +114,7 @@ void Bubble::checkFanInfluence(Fan& fan)
     {
         velocity += VELOCITY_DOWN * ( weight_factor) * 0.1f;
     }
-    velocity = std::clamp(velocity, -5.f, 4.5f);
+    velocity = std::clamp(velocity, -6.5f, 4.5f);
 }
 
 
