@@ -99,7 +99,7 @@ void EntityQueue::addEntity(int i)
 	
 	const char *const path = initArr[selectedType].path;
 	int frameCnt = initArr[selectedType].frameCount;
-	float newScale = initArr[selectedType].scale * static_cast<float>(GetRandomValue(100, 200)) / 200.0f;
+	float newScale = initArr[selectedType].scale * static_cast<float>(GetRandomValue(100, 200)) / 100.0f;
 	bool shouldInvert = initArr[selectedType].shouldInvert;
 
 	queue.push(std::make_pair(new Entity(path, pos, animationSpeed, frameCnt, velocityX, shouldInvert, newScale), enemyType(selectedType)));
