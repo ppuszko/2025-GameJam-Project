@@ -1,5 +1,5 @@
-output: Blow\ Me\!.o Animation.o Background.o Bubble.o Entity.o Fan.o ScreenManager.o
-	g++ Blow\ Me\!.o Animation.o Background.o Bubble.o Entity.o Fan.o ScreenManager.o -lm -Wall -Wextra -lraylib -lGL -lpthread -ldl -lrt -lX11 -o output
+output: Blow\ Me\!.o Animation.o Background.o Bubble.o Entity.o Fan.o ScreenManager.o Menu.o
+	g++ Blow\ Me\!.o Animation.o Background.o Bubble.o Entity.o Fan.o Menu.o ScreenManager.o -lm -Wall -Wextra -lraylib -lGL -lpthread -ldl -lrt -lX11 -o output
 
 Blow\ Me\!.o:  
 	g++ -c Blow\ Me\!.cpp
@@ -21,6 +21,9 @@ Fan.o: Fan.cpp Fan.hpp
 
 ScreenManager.o: ScreenManager.cpp ScreenManager.hpp
 	g++ -c ScreenManager.cpp
+
+Menu.o: Menu.cpp Menu.hpp
+	g++ -c Menu.cpp
 
 clean:
 	rm -r *.o
