@@ -136,7 +136,7 @@ void EntityQueue::update()
 		queue.pop();
 		t.first->move();
 		//there is no bird deletion
-		//if (!t->isOutOfScreen())
+		if (!t.first->isOutOfScreen())
 			queue.push(t);
 	}
 }
