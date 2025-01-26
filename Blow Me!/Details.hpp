@@ -10,8 +10,8 @@ const int screenWidth = 1600;
 const int fps = 60;
 
 // Taka kolejność, żeby się pokrywało z enemyType kurwa
-enum textureType {DUCK_TXTR, CLOUD_TXTR, RAIN_CLOUD_TXTR, STORM_CLOUD_TXTR, BUBBLE_TXTR, FAN_TXTR};
-const int textureCount = 6;
+enum textureType {DUCK_TXTR, CLOUD_TXTR, RAIN_CLOUD_TXTR, STORM_CLOUD_TXTR, BUBBLE_TXTR, BUBBLE_DEATH_TXTR, FAN_TXTR};
+const int textureCount = 7;
 
 const int animationSpeed = 8;
 const float velocityX = 1;

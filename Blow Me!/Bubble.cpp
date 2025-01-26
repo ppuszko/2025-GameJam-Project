@@ -1,11 +1,12 @@
 //tmp header for move
 #include <iostream>
 #include <algorithm>
+#include <raylib.h>
 #include "Bubble.hpp"
 
 void Bubble::show(int64_t& globalFrames)
 {
-    this->display(globalFrames);
+    if (!isDead) this->display(globalFrames);
 }
 
 Bubble::Bubble(float radius_, float velocity_,
@@ -92,7 +93,7 @@ void Bubble::checkCollision( int screenHeight, EntityQueue& eq)
         || position.y + radius + 1 >= screenHeight 
         || (entityCollisonResult.first ))
     {
-        DrawRectangle(0, 0, 1000, 900, RED);
+        // DrawRectangle(0, 0, 1000, 900, RED);
         
 
         if (entityCollisonResult.second == CLOUD)
@@ -101,10 +102,10 @@ void Bubble::checkCollision( int screenHeight, EntityQueue& eq)
         }
         else
         {
-            //invoke death method here
+            isDead = true;
         }
 
-        std::cout << "collided" << std::endl;
+        // std::cout << "collided" << std::endl;
     }
 
 }

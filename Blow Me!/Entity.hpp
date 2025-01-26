@@ -26,6 +26,8 @@ public:
 	bool isOutOfScreen();
 
 	Rectangle getCollider() { return collisionBox; }
+  float get_x() {return position.x;}
+  float get_y() {return position.y;}
 
 protected:
 	Rectangle collisionBox;

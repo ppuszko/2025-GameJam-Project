@@ -8,6 +8,7 @@
 class Bubble : public Entity
 {
 private:
+    bool isDead = false;
     int maxHeigth = 20.0;
     int minHeight = 0.0;
     const float VELOCITY_UP = -2.0;
@@ -30,6 +31,7 @@ private:
    
 
 public:
+    void reset() {isDead = false;}
     Bubble(float radius_, float velocity_, int scrH, const char* path, Vector2 pos,
         int frameSpd, int frameCnt, float velocityX, bool shouldInvert, float scale = 1.f);
     Bubble(float radius_, float velocity_, int scrH, Texture2D & txtr, Vector2 pos,
@@ -38,6 +40,7 @@ public:
     void update(Fan& fan);
     void checkCollision(int screenHeight, EntityQueue& eq);
     void show(int64_t& globalframes);
+    bool checkDeath() {return isDead; }
 };
 
 #endif

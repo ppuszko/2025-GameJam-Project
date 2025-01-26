@@ -30,5 +30,6 @@ private:
 	Bubble* _bubble; 
 	Fan* _fan;
 	EntityQueue* _entityQueue;
+  float deathTimer = 0;
 };
 #endif

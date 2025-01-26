@@ -72,6 +72,6 @@ state Fan::getFanState()
 
 void Fan::handleInput()
 {
-    if (IsKeyDown(KEY_LEFT)) updatePosition(-1, 1200);
-    if (IsKeyDown(KEY_RIGHT)) updatePosition(1, 1200);
+    if (IsKeyDown(KEY_LEFT) || IsKeyDown(KEY_A)) updatePosition(-1, 1200);
+    if (IsKeyDown(KEY_RIGHT) || IsKeyDown(KEY_D)) updatePosition(1, 1200);
 }
