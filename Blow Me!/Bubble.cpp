@@ -26,10 +26,14 @@ void Bubble::move()
 
 void Bubble::checkCollision( int screenHeight)
 {
-    if (position.y + radius / 2 >= screenHeight || position.x + radius / 2 <= 0)
+
+    if (position.y - (radius * scale) + radius*scale <= 0 || position.y + (radius * scale) >= screenHeight) std::cout << "collided with boundaries" << std::endl;
+
+
+   /* if (position.y + radius / 2 >= screenHeight || position.x + radius / 2 <= 0)
     {
-        std::cout << "collided with boundaries" << std::endl;
-    }
+        
+    }*/
 }
 
 void Bubble::checkFanInfluence(Fan& fan)
