@@ -97,7 +97,7 @@ void Bubble::checkCollision( int screenHeight, EntityQueue& eq)
 
         if (entityCollisonResult.second == CLOUD)
         {
-            changeWeightFactor(6.f);
+            changeWeightFactor(3.f);
         }
 
         std::cout << "collided" << std::endl;
