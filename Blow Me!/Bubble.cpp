@@ -3,7 +3,16 @@
 #include <algorithm>
 #include "Bubble.hpp"
 
-Bubble::Bubble(float radius_, float velocity_, 
+void Bubble::show(int64_t& globalFrames)
+{
+    if (shouldDisplay)
+    {
+        this->display(globalFrames);
+    }
+    
+}
+
+Bubble::Bubble(float radius_, float velocity_,
     int scrH, const char* path, Vector2 pos, int frameSpd,
     int frameCnt, float velocityX, bool shouldInvert, float scale) : Entity(path, pos, frameSpd,
    frameCnt,  velocityX,  shouldInvert,  scale), maxHeigth(0), minHeight(scrH)
@@ -25,6 +34,10 @@ Bubble::Bubble(float radius_, float velocity_,
     radius = radius_ * scale;
     velocity = velocity_;
     weight_factor = 1;
+}
+
+Bubble::~Bubble()
+{
 }
 
 void Bubble::move()
@@ -70,8 +83,9 @@ void Bubble::checkCollision( int screenHeight, EntityQueue& eq)
         || position.y + radius + 1 >= screenHeight 
         || (entityCollisonResult.first ))
     {
-        DrawRectangle(0, 0, 1000, 900, RED);
+        //DrawRectangle(0, 0, 1000, 900, RED);
         //invoke death method here
+        shouldDisplay = false;
         std::cout << "collided" << std::endl;
     }
 

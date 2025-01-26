@@ -39,7 +39,7 @@ void ScreenManager::drawModel()
 
     //Users space to draw objects on screen
     _background->drawBackground();
-    _bubble->display(globalFrames);
+    _bubble->show(globalFrames);
     //_entity->display(globalFrames);
     _fan->update(screenWidth, globalFrames);
     _entityQueue->display(globalFrames);

@@ -18,19 +18,21 @@ private:
     void checkFanInfluence(Fan& fan);
     void move();
     std::pair<bool, enemyType> checkCollisionWithEntity(EntityQueue& eq);
-  
+    bool shouldDisplay = true;
    
 
     //debug
-    void show();
+   
 
 public:
     Bubble(float radius_, float velocity_, int scrH, const char* path, Vector2 pos,
         int frameSpd, int frameCnt, float velocityX, bool shouldInvert, float scale = 1.f);
     Bubble(float radius_, float velocity_, int scrH, Texture2D & txtr, Vector2 pos,
         int frameSpd, int frameCnt, float velocityX, bool shouldInvert, float scale = 1.f);
+    ~Bubble();
     void update(Fan& fan);
     void checkCollision(int screenHeight, EntityQueue& eq);
+    void show(int64_t& globalframes);
 };
 
 #endif
