@@ -116,7 +116,7 @@ void EntityQueue::addEntity(Texture2D *txtr)
 	while (enemiesTypeQuantities[selectedType] > maxEnemiesPerType)
 	{
 		++selectedType;
-		if (selectedType == enemyTypeCount)
+		if (selectedType == 2)//enemyTypeCount)
 			selectedType = 0;
 	}
 	++enemiesTypeQuantities[selectedType]; 
