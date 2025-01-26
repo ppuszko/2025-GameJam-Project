@@ -1,6 +1,7 @@
 #ifndef MENU_HPP
 #define MENU_HPP
 #include <raylib.h>
+#include "Details.hpp"
 
 #define UNSELECTED 0
 #define START 1

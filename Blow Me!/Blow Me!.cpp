@@ -10,6 +10,11 @@ int main()
     while (!WindowShouldClose())
     {
         screenManager.drawModel();
+        if (screenManager._getExitFlag())
+        {
+            CloseWindow();
+            return 0;
+        }
     }
     CloseWindow();
 }
