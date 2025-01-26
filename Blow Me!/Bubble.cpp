@@ -26,9 +26,10 @@ void Bubble::move()
 
 void Bubble::checkCollision( int screenHeight)
 {
-    if (position.y + radius / 2 >= screenHeight || position.x + radius / 2 <= 0)
+    std::cout << position.y<< " " << radius <<  " "  << position.y + radius + 1 << std::endl;
+    if (position.y - radius/2 <= 0 || position.y + radius + 1 >= screenHeight)
     {
-        std::cout << "collided with boundaries" << std::endl;
+        std::cout << "collided" << std::endl;
     }
 }
 
