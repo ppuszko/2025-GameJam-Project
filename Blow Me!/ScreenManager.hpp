@@ -22,7 +22,7 @@ private:
 	Bubble* _bubble; 
 	Fan* _fan;
 	//prototype
-	Entity* _entity;
+	//Entity* _entity;
 
 	//final entity list
 	EntityQueue* _entityQueue;
