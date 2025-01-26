@@ -10,7 +10,22 @@ Entity::Entity(const char* path, Vector2 pos, int frameSpd,
 : position(pos), velX(velocityX), scale(scale)
 {
 	animComponent = new Animation(path, frameCnt, frameSpd, shouldInvert);
+
 	collisionBox.x = pos.x - animComponent->getSize()*scale/2; collisionBox.y = pos.y - animComponent->getSize() * scale /2;
+
+
+	collisionBox.x = pos.x - animComponent->getSize() * scale/2; collisionBox.y = pos.y - animComponent->getSize() * scale /2;
+	collisionBox.width = animComponent->getSize(); collisionBox.height =  animComponent->getSize();
+}
+
+Entity::Entity(Texture2D & _texture, Vector2 pos, int frameSpd, 
+	int frameCnt, float velocityX, bool shouldInvert, float scale)
+: position(pos), velX(velocityX), scale(scale)
+{
+	animComponent = new Animation(_texture, frameCnt, frameSpd, shouldInvert);
+
+	collisionBox.x = pos.x - animComponent->getSize() * scale/2; collisionBox.y = pos.y - animComponent->getSize() * scale /2;
+
 	collisionBox.width = animComponent->getSize(); collisionBox.height =  animComponent->getSize();
 }
 
@@ -88,6 +103,29 @@ void EntityQueue::addEntity(int i)
 	bool shouldInvert = initArr[selectedType].shouldInvert;
 
 	queue.push(std::make_pair(new Entity(path, pos, animationSpeed, frameCnt, velocityX, shouldInvert, newScale), enemyType(selectedType)));
+}
+
+void EntityQueue::addEntity(int i, Texture2D & txtr)
+{
+	if (queue.size() >= 3) return;
+
+	Vector2 pos = {screenWidth, static_cast<float>(GetRandomValue(100, 700))};
+
+	int selectedType = i; //GetRandomValue(0, enemyTypeCount - 1);
+	
+	while (enemiesTypeQuantities[selectedType] >= maxEnemiesPerType)
+		if (selectedType == enemyTypeCount)
+			selectedType = 0;
+		else
+			++selectedType;
+	++enemiesTypeQuantities[selectedType];
+	
+	//const char *const path = initArr[selectedType].path;
+	int frameCnt = initArr[selectedType].frameCount;
+	float newScale = initArr[selectedType].scale * static_cast<float>(GetRandomValue(100, 200)) / 200.0f;
+	bool shouldInvert = initArr[selectedType].shouldInvert;
+
+	queue.push(std::make_pair(new Entity(txtr, pos, animationSpeed, frameCnt, velocityX, shouldInvert, newScale), enemyType(selectedType)));
 }
 
 void EntityQueue::update()

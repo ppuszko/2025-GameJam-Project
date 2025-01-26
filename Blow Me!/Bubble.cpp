@@ -15,6 +15,18 @@ Bubble::Bubble(float radius_, float velocity_,
     weight_factor = 1;
 }
 
+Bubble::Bubble(float radius_, float velocity_, 
+    int scrH, Texture2D & txtr, Vector2 pos, int frameSpd,
+    int frameCnt, float velocityX, bool shouldInvert, float scale) : Entity(txtr, pos, frameSpd,
+   frameCnt,  velocityX,  shouldInvert,  scale), maxHeigth(0), minHeight(scrH)
+{
+    position.x = pos.x;
+    position.y = pos.y;
+    radius = radius_ * scale;
+    velocity = velocity_;
+    weight_factor = 1;
+}
+
 void Bubble::move()
 {
     position.y += velocity;
