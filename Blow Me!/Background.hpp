@@ -47,3 +47,4 @@ private:
     float seconds;
     void setShaders();
 };
+#endif
