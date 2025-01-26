@@ -18,6 +18,7 @@ public:
 
 	void display(int64_t& globalFrame);
 	void move();
+	bool isOutOfScreen();
 
 protected:
 	Rectangle collisionBox;
