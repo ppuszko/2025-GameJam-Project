@@ -13,7 +13,9 @@ public:
 	~ScreenManager();
 	void drawModel();
 private:
+  Texture2D * textureArr[5];
 	void _initWindow(int screenWidth, int screenHeight);
+  void _loadTextures();
 	void _createObjects();
 	void _udpateModel();
 	void _generateEntity();

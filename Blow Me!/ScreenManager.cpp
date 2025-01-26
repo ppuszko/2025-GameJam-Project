@@ -36,7 +36,6 @@ void ScreenManager::drawModel()
     //_entity->display(globalFrames);
     _fan->update(screenWidth, globalFrames);
     _entityQueue->display(globalFrames);
-    _bubble->checkCollision(screenHeight);
 
     EndDrawing();
 }
