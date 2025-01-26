@@ -26,7 +26,7 @@ Entity::Entity(Texture2D & _texture, Vector2 pos, int frameSpd,
 
 	collisionBox.x = pos.x - animComponent->getSize() * scale/2; collisionBox.y = pos.y - animComponent->getSize() * scale /2;
 
-	collisionBox.width = animComponent->getSize(); collisionBox.height =  animComponent->getSize();
+	collisionBox.width = animComponent->getSize()*scale/2; collisionBox.height =  animComponent->getSize()*scale/2;
 }
 
 Entity::~Entity()

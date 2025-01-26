@@ -97,7 +97,7 @@ void Bubble::checkCollision( int screenHeight, EntityQueue& eq)
 
         if (entityCollisonResult.second == CLOUD)
         {
-            changeWeightFactor(3.f);
+            changeWeightFactor(3.5f);
         }
         else
         {
