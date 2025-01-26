@@ -5,10 +5,9 @@
 
 void Bubble::show(int64_t& globalFrames)
 {
-    if (shouldDisplay)
-    {
-        this->display(globalFrames);
-    }
+  
+    this->display(globalFrames);
+
     
 }
 

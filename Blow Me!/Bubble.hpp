@@ -18,7 +18,7 @@ private:
     void checkFanInfluence(Fan& fan);
     void move();
     std::pair<bool, enemyType> checkCollisionWithEntity(EntityQueue& eq);
-    bool shouldDisplay = true;
+
    
 
     //debug
