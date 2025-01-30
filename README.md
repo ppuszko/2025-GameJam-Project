@@ -1,6 +1,6 @@
 # Blow Me!
 
-This project is a result of participation in 48H game jam. It is a super simple sidescroller, with a bubble as main character. Player's job is to controll a bubble by blowing on it with a fan, in roder to protect it from birds and clouds on it's path. 
+This project is a result of participation in 48H game jam. It is a super simple sidescroller, with a bubble as main character. Player's job is to controll a bubble by blowing on it with a fan, in order to protect it from birds and clouds on it's path. 
 The game is written using Raylib and C++.
 
 Credits:
